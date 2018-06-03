@@ -10,6 +10,18 @@ package Duendes;
  * @author HP PC
  */
 public class Ogros implements Duende{
+    
+    public int vida=0;
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+    
     @Override
     public void atacar() {
         System.out.println("30% de daño");

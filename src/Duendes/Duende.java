@@ -9,7 +9,7 @@ package Duendes;
  *
  * @author HP PC
  */
-public interface Duende {
+public interface Duende {   
     void atacar();
     void defender();
     

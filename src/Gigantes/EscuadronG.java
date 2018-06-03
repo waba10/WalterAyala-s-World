@@ -10,6 +10,16 @@ package Gigantes;
  * @author HP PC
  */
 public class EscuadronG implements Gigante {
+    
+    public int vida=0;
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
      @Override
     public void atacar() {
         System.out.println("30% de daño");

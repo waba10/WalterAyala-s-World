@@ -28,7 +28,7 @@ public class WalterAyalaSWorld {
         factory = Produccion.getFactory("Duendes");
         Duende ogro = factory.getDuendes("Ogros");
         ogro.atacar();
-        //elfos.morir();
+       
         
     }
     
