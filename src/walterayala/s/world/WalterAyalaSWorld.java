@@ -5,6 +5,8 @@
  */
 package walterayala.s.world;
 
+import Duendes.Duende;
+
 /**
  *
  * @author HP PC
@@ -16,6 +18,18 @@ public class WalterAyalaSWorld {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AbstractFactory factory;
+        
+        factory = Produccion.getFactory("Duendes");
+        Duende escuadrond = factory.getDuendes("EscuadronD");
+        escuadrond.atacar();
+        
+        
+        factory = Produccion.getFactory("Duendes");
+        Duende ogro = factory.getDuendes("Ogros");
+        ogro.atacar();
+        //elfos.morir();
+        
     }
     
 }
