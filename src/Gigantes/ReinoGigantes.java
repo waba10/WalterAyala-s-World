@@ -6,6 +6,7 @@
 package Gigantes;
 
 import Duendes.Duende;
+import Vehiculos.Vehiculo;
 import walterayala.s.world.AbstractFactory;
 
 /**
@@ -30,5 +31,9 @@ public class ReinoGigantes implements AbstractFactory{
         return null;
     }
     
+    @Override
+    public Vehiculo getVehiculos(String type){
+        return null;
+    }
     
 }

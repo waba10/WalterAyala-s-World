@@ -3,37 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Duendes;
+package Vehiculos;
+
+import Duendes.Duende;
 
 import Gigantes.Gigante;
-import Vehiculos.Vehiculo;
 import walterayala.s.world.AbstractFactory;
 
 /**
  *
  * @author HP PC
  */
-public class ReinoDuendes implements AbstractFactory {
- 
-    
-   @Override
+public class FabricaVehiculos implements AbstractFactory{
+    @Override
     public Gigante getGigantes(String type) {
-       
         return null;
     }
 
     @Override
     public Duende getDuendes(String type) {
-          switch (type) {
-            case "EscuadronD":
-                return new EscuadronD();
-            case "Ciclope":
-                return new Ogros();
+        return null;
+    }
+    
+    @Override
+    public Vehiculo getVehiculos(String type){
+        switch (type) {
+            case "Caballo":
+                return new CaballoDeTroya();
+            case "Coche":
+                return new CocheBomba();
         }
         return null;
     }
-    @Override
-    public Vehiculo getVehiculos(String type){
-        return null;
-    }
+    
 }

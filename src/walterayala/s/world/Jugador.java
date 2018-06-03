@@ -5,16 +5,11 @@
  */
 package walterayala.s.world;
 
-import Duendes.Duende;
-import Gigantes.Gigante;
-import Vehiculos.Vehiculo;
-
 /**
  *
  * @author HP PC
  */
-public interface AbstractFactory {
-    Duende getDuendes(String type);
-    Gigante getGigantes(String type);
-    Vehiculo getVehiculos(String type);
+public class Jugador {
+  
+    
 }

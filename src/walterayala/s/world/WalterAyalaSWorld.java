@@ -18,6 +18,7 @@ public class WalterAyalaSWorld {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        int cont=0;
         AbstractFactory factory;
         
         factory = Produccion.getFactory("Duendes");

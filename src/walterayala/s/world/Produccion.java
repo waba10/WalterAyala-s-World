@@ -7,6 +7,7 @@ package walterayala.s.world;
 
 import Duendes.ReinoDuendes;
 import Gigantes.ReinoGigantes;
+import Vehiculos.FabricaVehiculos;
 
 /**
  *
@@ -20,6 +21,8 @@ public class Produccion {
                 return new ReinoDuendes();
             case "Gigantes":
                 return new ReinoGigantes();
+            case "Vehiculos":
+                return new FabricaVehiculos();
         }
         return null;
     }

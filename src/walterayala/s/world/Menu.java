@@ -43,7 +43,7 @@ public class Menu {
             System.out.println("11. Crear edificación para vehiculos tipo 2");
             System.out.println("12. Mejorar centro de Mando");
             System.out.println("13. Actualizar");
-            System.out.println("14. Salir");
+            System.out.println("14. Fin del turno");
         
             Scanner leer = new Scanner(System.in);
             
@@ -81,7 +81,8 @@ public class Menu {
                     
                     break;
                 case 14:
-                    System.exit(0);
+                    //cont=cont+1;
+                    //System.exit(0);
                     break;
                 default:
                      System.out.println("");
