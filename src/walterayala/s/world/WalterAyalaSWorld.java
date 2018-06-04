@@ -7,6 +7,7 @@ package walterayala.s.world;
 
 import Gigantes.Gigante;
 import Magos.Mago;
+import java.util.Scanner;
 
 /**
  *
@@ -20,7 +21,7 @@ public class WalterAyalaSWorld {
     public static void main(String[] args) {
         // TODO code application logic here
         int cont=0;
-        AbstractFactory factory;
+        /*AbstractFactory factory;
         
         factory = Produccion.getFactory("Magos");
         Mago escuadronm = factory.getMagos("EscuadronM");
@@ -29,8 +30,31 @@ public class WalterAyalaSWorld {
         
         factory = Produccion.getFactory("Magos");
         Mago mago = factory.getMagos("Alfombra");
-        mago.construir();
+        mago.construir();*/
+        
+        Scanner leer = new Scanner(System.in);
+        System.out.println("Ingrese 1 si es el jugador 1");
+        int clave;
+        clave=leer.nextInt();
+        Jugador jugador1=new Jugador(clave);
+        System.out.println("Ingrese 2 si es el jugador 2");
+        clave=leer.nextInt();
+        Jugador jugador2=new Jugador(clave);
+        Menu menu = new Menu();
+        while(cont!=-1){
+            if(cont%2==0){
+                
+                menu.menuJugador();
+                cont=jugador1.fase(cont);
+            }
+            else{
+                
+                menu.menuJugador();
+                cont=jugador2.fase(cont);
+            }
+        }
        
+        
         
     }
     
