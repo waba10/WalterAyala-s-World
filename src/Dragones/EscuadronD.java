@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Duendes;
+package Dragones;
 
 /**
  *
  * @author HP PC
  */
-public class Ogros implements Duende{
-    
-    public int vida=0;
+public class EscuadronD implements Dragon {
+     public int vida=0;
 
     public int getVida() {
         return vida;
@@ -20,19 +19,12 @@ public class Ogros implements Duende{
     public void setVida(int vida) {
         this.vida = vida;
     }
-    
-    
-    @Override
+     @Override
     public void atacar() {
-        System.out.println("30% de daño");
+        System.out.println("30% Daño");
     }
-    
     @Override
-    public void defender() {
+    public void defender(){
         System.out.println("20% de daño");
     }
-
-
-    
-    
 }

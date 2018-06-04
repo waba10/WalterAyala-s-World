@@ -9,6 +9,18 @@ package Mandos;
  *
  * @author HP PC
  */
-public class CentroDeMando {
-    
+public class CentroDeMando implements Mando {
+     public int vida=0;
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+     @Override
+    public void level() {
+        System.out.println("30% Daño");
+    }
 }

@@ -5,7 +5,8 @@
  */
 package walterayala.s.world;
 
-import Duendes.Duende;
+import Gigantes.Gigante;
+import Magos.Mago;
 
 /**
  *
@@ -21,14 +22,14 @@ public class WalterAyalaSWorld {
         int cont=0;
         AbstractFactory factory;
         
-        factory = Produccion.getFactory("Duendes");
-        Duende escuadrond = factory.getDuendes("EscuadronD");
-        escuadrond.atacar();
+        factory = Produccion.getFactory("Magos");
+        Mago escuadronm = factory.getMagos("EscuadronM");
+        escuadronm.atacar();
         
         
-        factory = Produccion.getFactory("Duendes");
-        Duende ogro = factory.getDuendes("Ogros");
-        ogro.atacar();
+        factory = Produccion.getFactory("Magos");
+        Mago mago = factory.getMagos("Alfombra");
+        mago.construir();
        
         
     }

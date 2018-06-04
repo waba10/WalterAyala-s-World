@@ -10,5 +10,5 @@ package Mandos;
  * @author HP PC
  */
 public interface Mando {
-    
+    void level();
 }

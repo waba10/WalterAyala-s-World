@@ -3,37 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Duendes;
+package Dragones;
 
-import Gigantes.Gigante;
-import Vehiculos.Vehiculo;
+
+import Mandos.Mando;
 import walterayala.s.world.AbstractFactory;
+import Gigantes.Gigante;
+import Magos.Mago;
 
 /**
  *
  * @author HP PC
  */
-public class ReinoDuendes implements AbstractFactory {
- 
-    
-   @Override
+public class ReinoDragones implements AbstractFactory{
+    @Override
     public Gigante getGigantes(String type) {
-       
         return null;
     }
 
     @Override
-    public Duende getDuendes(String type) {
-          switch (type) {
+    public Mago getMagos(String type) {
+        return null;
+    }
+    
+    @Override
+    public Dragon getDragones(String type){
+        switch (type) {
+            case "Dragon":
+                return new DragonInfernal();
             case "EscuadronD":
                 return new EscuadronD();
-            case "Ciclope":
-                return new Ogros();
         }
         return null;
     }
     @Override
-    public Vehiculo getVehiculos(String type){
+    public Mando getMandos(String type){
         return null;
     }
 }

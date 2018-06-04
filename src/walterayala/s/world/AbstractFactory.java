@@ -5,16 +5,18 @@
  */
 package walterayala.s.world;
 
-import Duendes.Duende;
+import Mandos.Mando;
 import Gigantes.Gigante;
-import Vehiculos.Vehiculo;
+import Magos.Mago;
+import Dragones.Dragon;
 
 /**
  *
  * @author HP PC
  */
 public interface AbstractFactory {
-    Duende getDuendes(String type);
+    Mago getMagos(String type);
     Gigante getGigantes(String type);
-    Vehiculo getVehiculos(String type);
+    Dragon getDragones(String type);
+    Mando getMandos(String type);
 }

@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Duendes;
+package Magos;
 
 /**
  *
  * @author HP PC
  */
-public interface Duende {   
+public interface Mago {   
     void atacar();
     void defender();
+    void construir();
+    void recolectar();
+    void generar();
+    void entrenar();
     
 }

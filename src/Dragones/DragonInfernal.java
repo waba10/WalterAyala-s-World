@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos;
+package Dragones;
 
 /**
  *
  * @author HP PC
  */
-public class CaballoDeTroya implements Vehiculo {
+public class DragonInfernal implements Dragon {
     public int vida=0;
 
     public int getVida() {
@@ -20,9 +20,13 @@ public class CaballoDeTroya implements Vehiculo {
         this.vida = vida;
     }
      @Override
-    public void crear() {
+    public void atacar() {
         System.out.println("30% Daño");
     }
     
+    @Override
+    public void defender(){
+        System.out.println("20% Daño");
+    }
    
 }

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Duendes;
+package Magos;
 
 /**
  *
  * @author HP PC
  */
-public class EscuadronD implements Duende{
+public class Merlin implements Mago{
     
     public int vida=0;
 
@@ -21,6 +21,7 @@ public class EscuadronD implements Duende{
         this.vida = vida;
     }
     
+    
     @Override
     public void atacar() {
         System.out.println("30% de daño");
@@ -30,4 +31,25 @@ public class EscuadronD implements Duende{
     public void defender() {
         System.out.println("20% de daño");
     }
+
+    @Override
+    public void construir() {
+    }
+
+    @Override
+    public void recolectar() {
+    }
+
+    @Override
+    public void generar() {
+    }
+
+    @Override
+    public void entrenar() {
+        System.out.println("Espere ## turnos para atacar");
+    }
+
+
+    
+    
 }

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vehiculos;
+package Dragones;
 
 /**
  *
  * @author HP PC
  */
-public interface Vehiculo {
-    void crear();
+public interface Dragon {
+    void atacar();
+    void defender();
 }
