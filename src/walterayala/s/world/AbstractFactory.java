@@ -5,7 +5,7 @@
  */
 package walterayala.s.world;
 
-import Mandos.Mando;
+
 import Gigantes.Gigante;
 import Magos.Mago;
 import Dragones.Dragon;
@@ -18,5 +18,5 @@ public interface AbstractFactory {
     Mago getMagos(String type);
     Gigante getGigantes(String type);
     Dragon getDragones(String type);
-    Mando getMandos(String type);
+    
 }

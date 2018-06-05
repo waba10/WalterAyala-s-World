@@ -7,12 +7,23 @@ package RecursosMagos;
 
 import Magos.Mago;
 
+
 /**
  *
  * @author HP PC
  */
 public class RecolectorOro implements Mago{
+    GeneradorOro recolect= new GeneradorOro();
+    public int Vida=80;
 
+    public int getVida() {
+        return Vida;
+    }
+
+    public void setVida(int Vida) {
+        this.Vida = Vida;
+    }
+    
     @Override
     public void atacar() {
     }
@@ -27,7 +38,11 @@ public class RecolectorOro implements Mago{
 
     @Override
     public void recolectar() {
+        
+        recolect.getOro();
+        recolect.setOro(0);
         System.out.println("Se ha recolectado ## Oro");  
+        
     }
 
     @Override

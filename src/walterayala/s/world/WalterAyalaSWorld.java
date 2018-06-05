@@ -7,6 +7,9 @@ package walterayala.s.world;
 
 import Gigantes.Gigante;
 import Magos.Mago;
+import Mandos.CentroDeMando;
+import RecursosMagos.GeneradorOro;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -21,6 +24,9 @@ public class WalterAyalaSWorld {
     public static void main(String[] args) {
         // TODO code application logic here
         int cont=0;
+        CentroDeMando mando1=new CentroDeMando();
+        CentroDeMando mando2=new CentroDeMando();
+        ArrayList<GeneradorOro> geno=new ArrayList<GeneradorOro>();
         /*AbstractFactory factory;
         
         factory = Produccion.getFactory("Magos");
@@ -33,14 +39,26 @@ public class WalterAyalaSWorld {
         mago.construir();*/
         
         Scanner leer = new Scanner(System.in);
-        System.out.println("Ingrese 1 si es el jugador 1");
-        int clave;
-        clave=leer.nextInt();
-        Jugador jugador1=new Jugador(clave);
-        System.out.println("Ingrese 2 si es el jugador 2");
-        clave=leer.nextInt();
-        Jugador jugador2=new Jugador(clave);
+        System.out.println("Ingrese que raza eligirá");
+        String raza;
+        raza=leer.next();
+        
+        /*while(raza!="Magos") {
+            System.out.println("Ingrese que raza eligirá");
+            raza=leer.next();
+        }*/
+        
+        Jugador jugador1=new Jugador(geno, 1 , raza, mando1);
+        System.out.println("Ingrese que raza eligirá");
+        raza=leer.next();
+        /*while(raza!="Gigantes") {
+            System.out.println("Ingrese que raza eligirá");
+            raza=leer.next();
+        }*/
+        Jugador jugador2=new Jugador(geno,2, raza,mando2);
         Menu menu = new Menu();
+        System.out.println("La raza del jugador "+ jugador1.getNum()+ " es "+ jugador1.getRaza());
+        System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
         while(cont!=-1){
             if(cont%2==0){
                 

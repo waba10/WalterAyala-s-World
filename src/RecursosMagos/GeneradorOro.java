@@ -6,13 +6,35 @@
 package RecursosMagos;
 
 import Magos.Mago;
+import walterayala.s.world.AbstractFactory;
+import walterayala.s.world.Produccion;
 
 /**
  *
  * @author HP PC
  */
 public class GeneradorOro implements Mago {
+    public int Vida=100;
+    public int Oro;
+    
 
+    public int getVida() {
+        return Vida;
+    }
+
+    public void setVida(int Vida) {
+        this.Vida = Vida;
+    }
+    
+
+    public int getOro() {
+        return Oro;
+    }
+
+    public void setOro(int Oro) {
+        this.Oro = Oro;
+    }
+    
     @Override
     public void atacar() {
     }
@@ -31,7 +53,10 @@ public class GeneradorOro implements Mago {
 
     @Override
     public void generar() {
-        System.out.println("Se ha generado ## Oro");    
+           //setOro(Oro+200);
+           System.out.println("Se construyó un generador de oro");
+           setOro(Oro+50);
+           System.out.println(Oro);
     }
 
     @Override

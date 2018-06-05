@@ -12,6 +12,26 @@ import Magos.Mago;
  * @author HP PC
  */
 public class GeneradorElixir implements Mago {
+    public int Elixir=200;
+    public int Vida=100;
+
+    public int getVida() {
+        return Vida;
+    }
+
+    public void setVida(int Vida) {
+        this.Vida = Vida;
+    }
+    
+
+    public int getElixir() {
+        return Elixir;
+    }
+
+    public void setElixir(int Elixir) {
+        this.Elixir = Elixir;
+    }
+    
 
     @Override
     public void atacar() {

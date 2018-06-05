@@ -5,7 +5,7 @@
  */
 package Gigantes;
 
-import Mandos.Mando;
+
 import walterayala.s.world.AbstractFactory;
 import Magos.Mago;
 import Dragones.Dragon;
@@ -36,9 +36,7 @@ public class ReinoGigantes implements AbstractFactory{
     public Dragon getDragones(String type){
         return null;
     }
-    @Override
-    public Mando getMandos(String type){
-        return null;
-    }
+    
+    
     
 }

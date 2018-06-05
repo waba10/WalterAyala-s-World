@@ -5,6 +5,9 @@
  */
 package walterayala.s.world;
 
+
+import Mandos.CentroDeMando;
+import RecursosMagos.GeneradorOro;
 import java.util.ArrayList;
 
 /**
@@ -18,14 +21,36 @@ public class Jugador {
     public ArrayList<Integer> transporte1;
     public ArrayList<Integer> transporte2;
     */
+    public ArrayList<GeneradorOro> geno;
     public int num;
+    public String raza;
+    public CentroDeMando mando;
+    
+    
     
     public Jugador(){
     }
 
-    public Jugador(int num) {
+    public Jugador(ArrayList<GeneradorOro> geno, int num, String raza, CentroDeMando mando) {
+        this.geno = geno;
         this.num = num;
+        this.raza = raza;
+        this.mando = mando;
     }
+
+    
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    
+    
+    
     
 
     public int getNum() {
@@ -37,7 +62,13 @@ public class Jugador {
     }
     
     public int fase(int cont){
-        System.out.println("Es turno del jugador "+ (cont%2));
+        if(cont%2==0){
+            System.out.println("Es turno del jugador "+ ((cont%2)+2));
+        }
+        else{
+            System.out.println("Es turno del jugador "+ ((cont%2)));
+        }
+        
         cont=cont+1;
         return cont;
     }

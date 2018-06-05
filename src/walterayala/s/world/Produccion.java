@@ -7,7 +7,7 @@ package walterayala.s.world;
 
 import Magos.ReinoMagos;
 import Gigantes.ReinoGigantes;
-import Mandos.FabricaMandos;
+
 import Dragones.ReinoDragones;
 
 /**
@@ -24,8 +24,7 @@ public class Produccion {
                 return new ReinoGigantes();
             case "Dragones":
                 return new ReinoDragones();
-            case "Mandos":
-                return new FabricaMandos();
+            
         }
         return null;
     }

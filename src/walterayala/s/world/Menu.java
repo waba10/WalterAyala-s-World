@@ -5,6 +5,9 @@
  */
 package walterayala.s.world;
 
+import Magos.Mago;
+import RecursosMagos.GeneradorOro;
+import RecursosMagos.RecolectorOro;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -14,9 +17,27 @@ import java.util.Scanner;
  * @author HP PC
  */
 public class Menu {
+    public ArrayList<Mago> generador_oro=new ArrayList<>();
+    public ArrayList<RecolectorOro> recolector_oro=new ArrayList<>();
     public static Menu menu;
     
      public Menu() {
+    }
+
+    public ArrayList<Mago> getGenerador_oro() {
+        return generador_oro;
+    }
+
+    public void setGenerador_oro(ArrayList<Mago> generador_oro) {
+        this.generador_oro = generador_oro;
+    }
+
+    public ArrayList<RecolectorOro> getRecolector_oro() {
+        return recolector_oro;
+    }
+
+    public void setRecolector_oro(ArrayList<RecolectorOro> recolector_oro) {
+        this.recolector_oro = recolector_oro;
     }
     
     public static Menu getInstance(){
@@ -44,8 +65,20 @@ public class Menu {
             System.out.println("12. Mejorar centro de Mando");
             System.out.println("13. Actualizar");
             System.out.println("14. Fin del turno");
+            AbstractFactory factory;
+            factory = Produccion.getFactory("Magos");
+            Mago oro1 = factory.getMagos("Generador de Oro");
+            Mago oro2= factory.getMagos("Recolector de Oro");
+            for (int i = 0; i < generador_oro.size(); i++) {
+                oro1=generador_oro.get(i);
+                oro1.generar();
+                
+            }
         
             Scanner leer = new Scanner(System.in);
+            
+        
+        
             
             try{
                 System.out.println("\nDigite una opcion: ");
@@ -56,7 +89,14 @@ public class Menu {
             }
             
             switch(opc){    
-                case 1:    
+                case 1:   
+                    for (int i = 0; i < generador_oro.size(); i++) {
+                    oro1=generador_oro.get(i);
+                    oro2.recolectar();
+                    oro1.generar();
+                
+            }
+                    
                    
                     break;
                 case 2:
@@ -72,6 +112,10 @@ public class Menu {
                     
                     break;
                 case 6:
+                    factory = Produccion.getFactory("Magos");
+                    Mago oro = factory.getMagos("Generador de Oro");
+                    generador_oro.add(oro);
+                    
                     
                     break;
                 case 7:

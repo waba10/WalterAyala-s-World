@@ -9,11 +9,11 @@ package Mandos;
  *
  * @author HP PC
  */
-public class CentroDeMando implements Mando {
-     public int vida;
-     public int oro;
-     public int elixir;
-     public int gema;
+public class CentroDeMando {
+     public int vida=500;
+     public int oro=200;
+     public int elixir=200;
+     public int gema=200;
 
     public int getVida() {
         return vida;
@@ -45,7 +45,7 @@ public class CentroDeMando implements Mando {
         this.gema = gema;
     }
     
-     @Override
+    
     public void level() {
         System.out.println("30% Daño");
     }
