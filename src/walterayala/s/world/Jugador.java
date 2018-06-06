@@ -21,7 +21,7 @@ public class Jugador {
     public ArrayList<Integer> transporte1;
     public ArrayList<Integer> transporte2;
     */
-    public ArrayList<GeneradorOro> geno;
+    //public ArrayList<GeneradorOro> geno;
     public int num;
     public String raza;
     public CentroDeMando mando;
@@ -31,8 +31,8 @@ public class Jugador {
     public Jugador(){
     }
 
-    public Jugador(ArrayList<GeneradorOro> geno, int num, String raza, CentroDeMando mando) {
-        this.geno = geno;
+    public Jugador( int num, String raza, CentroDeMando mando) {
+        //this.geno = geno;
         this.num = num;
         this.raza = raza;
         this.mando = mando;
@@ -48,11 +48,15 @@ public class Jugador {
         this.raza = raza;
     }
 
-    
-    
-    
-    
+    public CentroDeMando getMando() {
+        return mando;
+    }
 
+    public void setMando(CentroDeMando mando) {
+        this.mando = mando;
+    }
+
+    
     public int getNum() {
         return num;
     }

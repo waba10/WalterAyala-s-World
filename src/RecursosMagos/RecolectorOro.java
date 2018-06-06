@@ -37,11 +37,11 @@ public class RecolectorOro implements Mago{
     }
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
         
-        recolect.getOro();
-        recolect.setOro(0);
+       
         System.out.println("Se ha recolectado ## Oro");  
+        return 0;
         
     }
 

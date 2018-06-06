@@ -35,8 +35,9 @@ public class RecolectorGema implements Mago {
     }
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
         System.out.println("Se ha recolectado ## Gemas");
+        return 0;
     }
 
     @Override

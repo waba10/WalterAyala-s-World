@@ -36,7 +36,8 @@ public class EscuadronM implements Mago{
     }
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
+        return 0;
     }
 
     @Override

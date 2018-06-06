@@ -24,7 +24,8 @@ public class EntrenadorMago implements Mago {
         System.out.println("Se ha construido una edificacion de Entrenamiento de Magos");}
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
+        return 0;
     }
 
     @Override

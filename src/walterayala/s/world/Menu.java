@@ -19,11 +19,35 @@ import java.util.Scanner;
 public class Menu {
     public ArrayList<Mago> generador_oro=new ArrayList<>();
     public ArrayList<RecolectorOro> recolector_oro=new ArrayList<>();
+    public int contador;
+    public Jugador jugador;
     public static Menu menu;
     
      public Menu() {
     }
 
+    public Menu(Jugador jugador,int contador) {
+        this.jugador = jugador;
+        this.contador=contador;
+    }
+
+    public int getContador() {
+        return contador;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+     
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+
+     
     public ArrayList<Mago> getGenerador_oro() {
         return generador_oro;
     }
@@ -69,11 +93,20 @@ public class Menu {
             factory = Produccion.getFactory("Magos");
             Mago oro1 = factory.getMagos("Generador de Oro");
             Mago oro2= factory.getMagos("Recolector de Oro");
-            for (int i = 0; i < generador_oro.size(); i++) {
-                oro1=generador_oro.get(i);
-                oro1.generar();
+            
+            /*if(contador==1){
+                if(generador_oro.size()>0){
+                    for (int i = 0; i < generador_oro.size(); i++) {
+                        oro1=generador_oro.get(i);
+                        oro1.generar();
                 
-            }
+                    }
+                setContador(0);
+                }
+                
+            }*/
+            
+            
         
             Scanner leer = new Scanner(System.in);
             
@@ -89,14 +122,18 @@ public class Menu {
             }
             
             switch(opc){    
-                case 1:   
+                case 1:
                     for (int i = 0; i < generador_oro.size(); i++) {
-                    oro1=generador_oro.get(i);
-                    oro2.recolectar();
-                    oro1.generar();
-                
-            }
-                    
+                        oro1 = generador_oro.get(i);
+                        int num = oro1.recolectar();
+                        int num1 = getJugador().getMando().getOro();
+                        int sum = num + num1;
+                        getJugador().getMando().setOro(sum);
+                        //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
+
+                    }
+                    System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
+      
                    
                     break;
                 case 2:
@@ -115,7 +152,7 @@ public class Menu {
                     factory = Produccion.getFactory("Magos");
                     Mago oro = factory.getMagos("Generador de Oro");
                     generador_oro.add(oro);
-                    
+                    System.out.println("Se construyó un generador de oro");
                     
                     break;
                 case 7:
@@ -125,6 +162,11 @@ public class Menu {
                     
                     break;
                 case 14:
+                    for (int i = 0; i < generador_oro.size(); i++) {
+                        oro1=generador_oro.get(i);
+                        oro1.generar();
+                
+                    }
                     //cont=cont+1;
                     //System.exit(0);
                     break;

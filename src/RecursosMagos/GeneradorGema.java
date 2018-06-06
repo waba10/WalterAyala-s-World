@@ -45,7 +45,8 @@ public class GeneradorGema implements Mago {
     }
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
+        return 0;
     }
 
     @Override

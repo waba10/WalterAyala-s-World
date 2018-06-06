@@ -13,7 +13,7 @@ public interface Mago {
     void atacar();
     void defender();
     void construir();
-    void recolectar();
+    int recolectar();
     void generar();
     void entrenar();
     

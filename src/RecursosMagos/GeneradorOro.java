@@ -48,15 +48,20 @@ public class GeneradorOro implements Mago {
     }
 
     @Override
-    public void recolectar() {
+    public int recolectar() {
+        int num;
+        num=getOro();
+        setOro(0);
+        return num;
+        
     }
 
     @Override
     public void generar() {
            //setOro(Oro+200);
-           System.out.println("Se construyó un generador de oro");
+           
            setOro(Oro+50);
-           System.out.println(Oro);
+           
     }
 
     @Override

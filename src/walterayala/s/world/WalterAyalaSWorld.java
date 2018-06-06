@@ -48,15 +48,18 @@ public class WalterAyalaSWorld {
             raza=leer.next();
         }*/
         
-        Jugador jugador1=new Jugador(geno, 1 , raza, mando1);
+        Jugador jugador1=new Jugador( 1 , raza, mando1);
         System.out.println("Ingrese que raza eligirá");
         raza=leer.next();
         /*while(raza!="Gigantes") {
             System.out.println("Ingrese que raza eligirá");
             raza=leer.next();
         }*/
-        Jugador jugador2=new Jugador(geno,2, raza,mando2);
-        Menu menu = new Menu();
+        int contador=1;
+        Jugador jugador2=new Jugador(2, raza,mando2);
+        Menu menu = new Menu(jugador1,contador);
+        Menu menu2 = new Menu(jugador2,contador);
+        
         System.out.println("La raza del jugador "+ jugador1.getNum()+ " es "+ jugador1.getRaza());
         System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
         while(cont!=-1){
@@ -67,7 +70,7 @@ public class WalterAyalaSWorld {
             }
             else{
                 
-                menu.menuJugador();
+                menu2.menuJugador();
                 cont=jugador2.fase(cont);
             }
         }
