@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,7 +13,7 @@ import Magos.Mago;
  */
 public class GeneradorGema implements Mago {
     public int Vida=100;
-    public int Gema=200;
+    public int Gema;
 
     public int getVida() {
         return Vida;
@@ -46,12 +46,15 @@ public class GeneradorGema implements Mago {
 
     @Override
     public int recolectar() {
-        return 0;
+        int num;
+        num=getGema();
+        setGema(0);
+        return num;
     }
 
     @Override
     public void generar() {
-        System.out.println("Se ha generado ## Gemas");
+        setGema(Gema+50);
     }
 
     @Override

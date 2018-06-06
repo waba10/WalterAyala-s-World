@@ -12,7 +12,7 @@ import Magos.Mago;
  * @author HP PC
  */
 public class GeneradorElixir implements Mago {
-    public int Elixir=200;
+    public int Elixir;
     public int Vida=100;
 
     public int getVida() {
@@ -47,12 +47,16 @@ public class GeneradorElixir implements Mago {
 
     @Override
     public int recolectar() {
-        return 0;
+        int num;
+        num=getElixir();
+        setElixir(0);
+        return num;
     }
 
     @Override
     public void generar() {
-        System.out.println("Se ha generador ## Elixir");
+        setElixir(Elixir+50);
+        
     }
 
     @Override
