@@ -6,8 +6,6 @@
 package walterayala.s.world;
 
 import Magos.Mago;
-import RecursosMagos.GeneradorOro;
-import RecursosMagos.RecolectorOro;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -20,6 +18,9 @@ public class Menu {
     public ArrayList<Mago> generador_oro=new ArrayList<>();
     public ArrayList<Mago> generador_elixir=new ArrayList<>();
     public ArrayList<Mago> generador_gema=new ArrayList<>();
+    public ArrayList<Mago> entrenar=new ArrayList<>();
+    public ArrayList<Mago> vehiculo1=new ArrayList<>();
+    public ArrayList<Mago> vehiculo2=new ArrayList<>();
     public int contador;
     public Jugador jugador;
     public static Menu menu;
@@ -89,18 +90,16 @@ public class Menu {
             System.out.println("\n********JUGADOR********");
             System.out.println("1. Recoger Oro");
             System.out.println("2. Recoger Gemas");
-            System.out.println("3. Recoger Elixir");
-            System.out.println("4. Atacar al rival");
-            System.out.println("5. Defender ataque");
-            System.out.println("6. Crear generador de Oro");
-            System.out.println("7. Crear generador de elixir"); 
-            System.out.println("8. Crear generador de gemas"); 
-            System.out.println("9. Crear edificacion para entrenar soldados y escuadrones");
-            System.out.println("10. Crear edificación para vehiculos 1");
-            System.out.println("11. Crear edificación para vehiculos tipo 2");
-            System.out.println("12. Mejorar centro de Mando");
-            System.out.println("13. Actualizar");
-            System.out.println("14. Fin del turno");
+            System.out.println("3. Atacar al rival");
+            System.out.println("4. Defender ataque");
+            System.out.println("5. Crear generador de Oro");
+            System.out.println("6. Crear generador de elixir"); 
+            System.out.println("7. Crear generador de gemas"); 
+            System.out.println("8. Crear edificacion para entrenar soldados y escuadrones");
+            System.out.println("9. Crear edificación para vehiculos 1");
+            System.out.println("10. Crear edificación para vehiculos tipo 2");
+            System.out.println("11. Mejorar centro de Mando");
+            System.out.println("12. Fin del turno");
             AbstractFactory factory;
             factory = Produccion.getFactory("Magos");
             Mago oro1 = factory.getMagos("Generador de Oro");
@@ -170,28 +169,45 @@ public class Menu {
                     
                     break;
                 case 5:
-                    
-                    break;
-                case 6:
                     factory = Produccion.getFactory("Magos");
                     Mago oro = factory.getMagos("Generador de Oro");
                     generador_oro.add(oro);
                     System.out.println("Se construyó un generador de oro");
-                    
                     break;
-                case 7:
+                case 6:
                     factory = Produccion.getFactory("Magos");
                     Mago elixir = factory.getMagos("Generador de Elixir");
                     generador_elixir.add(elixir);
                     System.out.println("Se construyó un generador de Elixir");
                     break;
-                case 8:
+                case 7:
                     factory = Produccion.getFactory("Magos");
                     Mago gema = factory.getMagos("Generador de Gema");
                     generador_gema.add(gema);
                     System.out.println("Se construyó un generador de gema");
                     break;
-                case 14:
+                case 8:
+                    factory = Produccion.getFactory("Magos");
+                    Mago entrena = factory.getMagos("Entrenador");
+                    entrenar.add(entrena);
+                    System.out.println("Se construyó una edificación para entrenar");
+                    
+                    break;
+                case 9:
+                    factory = Produccion.getFactory("Magos");
+                    Mago veh1 = factory.getMagos("Alfombra");
+                    vehiculo1.add(veh1);
+                    System.out.println("Se construyó un vehiculo tipo 1");
+                    break;
+                    
+                case 10:
+                    factory = Produccion.getFactory("Magos");
+                    Mago veh2 = factory.getMagos("Caballo");
+                    vehiculo2.add(veh2);
+                    System.out.println("Se construyó un vehiculo tipo 2");
+                    break;
+                    
+                case 12:
                     for (int i = 0; i < generador_elixir.size(); i++) {
                         elixir1 = generador_elixir.get(i);
                         int num = elixir1.recolectar();
@@ -217,14 +233,15 @@ public class Menu {
                         gema1.generar();
                 
                     }
-                    
-                    
+                    System.out.println("Tienes "+ entrenar.size() + " Para entrenar tropas");
+                    System.out.println("Tienes "+ vehiculo1.size() + " vehiculo tipo 1");
+                    System.out.println("Tienes "+ vehiculo2.size() + " vehiculo tipo 2 ");
                     //cont=cont+1;
                     //System.exit(0);
                     break;
                 default:
                      System.out.println("");
             }
-        }while(opc!=14);       
+        }while(opc!=12);       
     }
 }

@@ -12,8 +12,6 @@ import Dragones.Dragon;
 import RecursosMagos.GeneradorElixir;
 import RecursosMagos.GeneradorGema;
 import RecursosMagos.GeneradorOro;
-import RecursosMagos.RecolectorGema;
-import RecursosMagos.RecolectorOro;
 import VehiculoMagos.Alfombra;
 import VehiculoMagos.Caballo;
 
@@ -49,10 +47,7 @@ public class ReinoMagos implements AbstractFactory {
                 return new GeneradorGema();
             case "Generador de Oro":
                 return new GeneradorOro();
-            case "Recolector de Gema":
-                return new RecolectorGema();
-            case "Recolector de Oro":
-                return new RecolectorOro();
+           
                 
         }
         return null;
