@@ -14,6 +14,39 @@ public class CentroDeMando {
      public int oro=200;
      public int elixir=200;
      public int gema=200;
+     public int capacidad1=10000;
+     public int capacidad2=5000;
+     public int capacidad3=3000;
+     int capacidad11=11000;
+     int capacidad22=6500;
+     int capacidad33=4500;
+     int capacidad111=12100;
+     int capacidad222=8450;
+     int capacidad333=6750;
+
+    public int getCapacidad1() {
+        return capacidad1;
+    }
+
+    public void setCapacidad1(int capacidad1) {
+        this.capacidad1 = capacidad1;
+    }
+
+    public int getCapacidad2() {
+        return capacidad2;
+    }
+
+    public void setCapacidad2(int capacidad2) {
+        this.capacidad2 = capacidad2;
+    }
+
+    public int getCapacidad3() {
+        return capacidad3;
+    }
+
+    public void setCapacidad3(int capacidad3) {
+        this.capacidad3 = capacidad3;
+    }
 
     public int getVida() {
         return vida;
@@ -47,6 +80,8 @@ public class CentroDeMando {
     
     
     public void level() {
-        System.out.println("30% Daño");
+        setCapacidad1(capacidad11);
+        setCapacidad2(capacidad22);
+        setCapacidad3(capacidad33);
     }
 }

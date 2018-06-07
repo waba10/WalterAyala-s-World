@@ -206,6 +206,13 @@ public class Menu {
                     vehiculo2.add(veh2);
                     System.out.println("Se construyó un vehiculo tipo 2");
                     break;
+                case 11:
+                    if(getJugador().getMando().getOro()==250 && getJugador().getMando().getElixir()==250 && getJugador().getMando().getGema()==250)
+                    getJugador().getMando().level();
+                    System.out.println("El valor ahora de Oro es de " + getJugador().getMando().getCapacidad1());
+                    System.out.println("El valor ahora de Elixir es de "+ getJugador().getMando().getCapacidad2());
+                    System.out.println("El valor ahora de Gema es de "+ getJugador().getMando().getCapacidad3());
+                    break;
                     
                 case 12:
                     for (int i = 0; i < generador_elixir.size(); i++) {
