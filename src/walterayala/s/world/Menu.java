@@ -207,11 +207,27 @@ public class Menu {
                     System.out.println("Se construyó un vehiculo tipo 2");
                     break;
                 case 11:
-                    if(getJugador().getMando().getOro()==250 && getJugador().getMando().getElixir()==250 && getJugador().getMando().getGema()==250)
-                    getJugador().getMando().level();
-                    System.out.println("El valor ahora de Oro es de " + getJugador().getMando().getCapacidad1());
-                    System.out.println("El valor ahora de Elixir es de "+ getJugador().getMando().getCapacidad2());
-                    System.out.println("El valor ahora de Gema es de "+ getJugador().getMando().getCapacidad3());
+                    int cap1=getJugador().getMando().getCapacidad1();
+                    int cap2=getJugador().getMando().getCapacidad2();
+                    int cap3=getJugador().getMando().getCapacidad3();
+                    double ca=cap1+(cap1*0.10); 
+                    double ce=cap2+(cap2*0.30); 
+                    double ci=cap3+(cap3*0.50); 
+                    double sum= (ca+ce+ci);
+                    sum=sum*0.25;
+                    sum=(int)sum/3;
+                    
+                    System.out.println(sum);
+                    
+                    if (getJugador().getMando().getOro() >= sum && getJugador().getMando().getElixir() >= sum && getJugador().getMando().getGema() >= sum) {
+                        getJugador().getMando().level();
+                        System.out.println("El valor ahora de Oro es de " + getJugador().getMando().getCapacidad1());
+                        System.out.println("El valor ahora de Elixir es de " + getJugador().getMando().getCapacidad2());
+                        System.out.println("El valor ahora de Gema es de " + getJugador().getMando().getCapacidad3());
+                    }
+                    else{
+                        System.out.println("No dispone de suficientes recursos");
+                    }
                     break;
                     
                 case 12:
@@ -219,8 +235,8 @@ public class Menu {
                         elixir1 = generador_elixir.get(i);
                         int num = elixir1.recolectar();
                         int num1 = getJugador().getMando().getElixir();
-                        int sum = num + num1;
-                        getJugador().getMando().setElixir(sum);
+                        int sum2 = num + num1;
+                        getJugador().getMando().setElixir(sum2);
                         //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
 
                     }
