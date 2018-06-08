@@ -6,6 +6,7 @@
 package walterayala.s.world;
 
 
+import Magos.Mago;
 import Mandos.CentroDeMando;
 import RecursosMagos.GeneradorOro;
 import java.util.ArrayList;
@@ -25,20 +26,78 @@ public class Jugador {
     public int num;
     public String raza;
     public CentroDeMando mando;
+    public  ArrayList<Mago> re1;
+    public  ArrayList<Mago> re2;
+    public  ArrayList<Mago> re3;
+    public  ArrayList<Mago> entrenador;
+    public  ArrayList<Mago> vehiculo1;
+    public  ArrayList<Mago> vehiculo2;
     
     
     
     public Jugador(){
     }
 
-    public Jugador( int num, String raza, CentroDeMando mando) {
-        //this.geno = geno;
+    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2) {
         this.num = num;
         this.raza = raza;
         this.mando = mando;
+        this.re1 = re1;
+        this.re2 = re2;
+        this.re3 = re3;
+        this.entrenador = entrenador;
+        this.vehiculo1 = vehiculo1;
+        this.vehiculo2 = vehiculo2;
     }
 
     
+    public ArrayList<Mago> getRe1() {
+        return re1;
+    }
+
+    public void setRe1(ArrayList<Mago> re1) {
+        this.re1 = re1;
+    }
+
+    public ArrayList<Mago> getRe2() {
+        return re2;
+    }
+
+    public void setRe2(ArrayList<Mago> re2) {
+        this.re2 = re2;
+    }
+
+    public ArrayList<Mago> getRe3() {
+        return re3;
+    }
+
+    public void setRe3(ArrayList<Mago> re3) {
+        this.re3 = re3;
+    }
+
+    public ArrayList<Mago> getEntrenador() {
+        return entrenador;
+    }
+
+    public void setEntrenador(ArrayList<Mago> entrenador) {
+        this.entrenador = entrenador;
+    }
+
+    public ArrayList<Mago> getVehiculo1() {
+        return vehiculo1;
+    }
+
+    public void setVehiculo1(ArrayList<Mago> vehiculo1) {
+        this.vehiculo1 = vehiculo1;
+    }
+
+    public ArrayList<Mago> getVehiculo2() {
+        return vehiculo2;
+    }
+
+    public void setVehiculo2(ArrayList<Mago> vehiculo2) {
+        this.vehiculo2 = vehiculo2;
+    }
 
     public String getRaza() {
         return raza;

@@ -23,6 +23,7 @@ public class Menu {
     public ArrayList<Mago> vehiculo2=new ArrayList<>();
     public int contador;
     public Jugador jugador;
+    public Jugador otro;
     public static Menu menu;
     
      public Menu() {
@@ -33,6 +34,21 @@ public class Menu {
         this.contador=contador;
     }
 
+    public Menu(int contador, Jugador jugador, Jugador otro) {
+        this.contador = contador;
+        this.jugador = jugador;
+        this.otro = otro;
+    }
+
+    public Jugador getOtro() {
+        return otro;
+    }
+
+    public void setOtro(Jugador otro) {
+        this.otro = otro;
+    }
+    
+    
     public int getContador() {
         return contador;
     }
@@ -136,9 +152,11 @@ public class Menu {
             
             switch(opc){    
                 case 1:
-                    for (int i = 0; i < generador_oro.size(); i++) {
-                        oro1 = generador_oro.get(i);
+                    for (int i = 0; i <getJugador().getRe1().size(); i++) {
+                        
+                        oro1 = getJugador().getRe1().get(i);
                         int num = oro1.recolectar();
+                        System.out.println("Esto se obtuvo en "+i+" interaccion "+ num);
                         int num1 = getJugador().getMando().getOro();
                         int sum = num + num1;
                         getJugador().getMando().setOro(sum);
@@ -150,8 +168,8 @@ public class Menu {
                    
                     break;
                 case 2:
-                    for (int i = 0; i < generador_gema.size(); i++) {
-                        gema1 = generador_gema.get(i);
+                    for (int i = 0; i < getJugador().getRe3().size(); i++) {
+                        gema1 = getJugador().getRe3().get(i);
                         int num = gema1.recolectar();
                         int num1 = getJugador().getMando().getGema();
                         int sum = num + num1;
@@ -171,19 +189,22 @@ public class Menu {
                 case 5:
                     factory = Produccion.getFactory("Magos");
                     Mago oro = factory.getMagos("Generador de Oro");
-                    generador_oro.add(oro);
+                    getJugador().getRe1().add(oro);
+                    //generador_oro.add(oro);
                     System.out.println("Se construyó un generador de oro");
                     break;
                 case 6:
                     factory = Produccion.getFactory("Magos");
                     Mago elixir = factory.getMagos("Generador de Elixir");
-                    generador_elixir.add(elixir);
+                    getJugador().getRe2().add(elixir);
+                    //generador_elixir.add(elixir);
                     System.out.println("Se construyó un generador de Elixir");
                     break;
                 case 7:
                     factory = Produccion.getFactory("Magos");
                     Mago gema = factory.getMagos("Generador de Gema");
-                    generador_gema.add(gema);
+                    getJugador().getRe3().add(gema);
+                    //generador_gema.add(gema);
                     System.out.println("Se construyó un generador de gema");
                     break;
                 case 8:
@@ -231,8 +252,8 @@ public class Menu {
                     break;
                     
                 case 12:
-                    for (int i = 0; i < generador_elixir.size(); i++) {
-                        elixir1 = generador_elixir.get(i);
+                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
+                        elixir1 = getJugador().getRe1().get(i);
                         int num = elixir1.recolectar();
                         int num1 = getJugador().getMando().getElixir();
                         int sum2 = num + num1;
@@ -241,24 +262,25 @@ public class Menu {
 
                     }
                     System.out.println("Esta recogió y se obtuvo esta cantidad total en el centro de mando de elixir " + getJugador().getMando().getElixir());
-                    for (int i = 0; i < generador_oro.size(); i++) {
-                        oro1=generador_oro.get(i);
+                    for (int i = 0; i < getJugador().getRe1().size(); i++) {
+                        System.out.println("Se hizo la generacion "+i);
+                        oro1=getJugador().getRe1().get(i);
                         oro1.generar();
                 
                     }
-                    for (int i = 0; i < generador_elixir.size(); i++) {
-                        elixir1=generador_elixir.get(i);
+                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
+                        elixir1=getJugador().getRe1().get(i);
                         elixir1.generar();
                 
                     }
-                    for (int i = 0; i < generador_gema.size(); i++) {
-                        gema1=generador_gema.get(i);
+                    for (int i = 0; i < getJugador().getRe3().size(); i++) {
+                        gema1=getJugador().getRe3().get(i);
                         gema1.generar();
                 
                     }
-                    System.out.println("Tienes "+ entrenar.size() + " Para entrenar tropas");
-                    System.out.println("Tienes "+ vehiculo1.size() + " vehiculo tipo 1");
-                    System.out.println("Tienes "+ vehiculo2.size() + " vehiculo tipo 2 ");
+                    System.out.println("Tienes "+ getJugador().getEntrenador().size() + " Para entrenar tropas");
+                    System.out.println("Tienes "+ getJugador().getVehiculo1().size() + " vehiculo tipo 1");
+                    System.out.println("Tienes "+ getJugador().getVehiculo2().size() + " vehiculo tipo 2 ");
                     //cont=cont+1;
                     //System.exit(0);
                     break;
