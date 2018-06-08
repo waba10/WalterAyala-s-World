@@ -210,21 +210,24 @@ public class Menu {
                 case 8:
                     factory = Produccion.getFactory("Magos");
                     Mago entrena = factory.getMagos("Entrenador");
-                    entrenar.add(entrena);
+                    getJugador().getEntrenador().add(entrena);
+                    //entrenar.add(entrena);
                     System.out.println("Se construyó una edificación para entrenar");
                     
                     break;
                 case 9:
                     factory = Produccion.getFactory("Magos");
                     Mago veh1 = factory.getMagos("Alfombra");
-                    vehiculo1.add(veh1);
+                    getJugador().getVehiculo1().add(veh1);
+                    //vehiculo1.add(veh1);
                     System.out.println("Se construyó un vehiculo tipo 1");
                     break;
                     
                 case 10:
                     factory = Produccion.getFactory("Magos");
                     Mago veh2 = factory.getMagos("Caballo");
-                    vehiculo2.add(veh2);
+                    getJugador().getVehiculo2().add(veh2);
+                    //vehiculo2.add(veh2);
                     System.out.println("Se construyó un vehiculo tipo 2");
                     break;
                 case 11:
@@ -253,7 +256,7 @@ public class Menu {
                     
                 case 12:
                     for (int i = 0; i < getJugador().getRe2().size(); i++) {
-                        elixir1 = getJugador().getRe1().get(i);
+                        elixir1 = getJugador().getRe2().get(i);
                         int num = elixir1.recolectar();
                         int num1 = getJugador().getMando().getElixir();
                         int sum2 = num + num1;
@@ -269,7 +272,7 @@ public class Menu {
                 
                     }
                     for (int i = 0; i < getJugador().getRe2().size(); i++) {
-                        elixir1=getJugador().getRe1().get(i);
+                        elixir1=getJugador().getRe2().get(i);
                         elixir1.generar();
                 
                     }

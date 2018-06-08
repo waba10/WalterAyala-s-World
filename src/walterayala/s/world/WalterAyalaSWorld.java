@@ -22,7 +22,7 @@ public class WalterAyalaSWorld {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
         int cont=0;
         CentroDeMando mando1=new CentroDeMando();
         CentroDeMando mando2=new CentroDeMando();
@@ -32,6 +32,12 @@ public class WalterAyalaSWorld {
         ArrayList<Mago> entre=new ArrayList<Mago>();
         ArrayList<Mago> ve1=new ArrayList<Mago>();
         ArrayList<Mago> ve2=new ArrayList<Mago>();
+        ArrayList<Mago> genoro2=new ArrayList<Mago>();
+        ArrayList<Mago> genel2=new ArrayList<Mago>();
+        ArrayList<Mago> gengem2=new ArrayList<Mago>();
+        ArrayList<Mago> entre2=new ArrayList<Mago>();
+        ArrayList<Mago> ve12=new ArrayList<Mago>();
+        ArrayList<Mago> ve22=new ArrayList<Mago>();
         
         
         Scanner leer = new Scanner(System.in);
@@ -52,27 +58,22 @@ public class WalterAyalaSWorld {
             raza=leer.next();
         }*/
         int contador=1;
-        Jugador jugador2=new Jugador(2, raza,mando2,genoro,genel,gengem,entre,ve1,ve2);
+        Jugador jugador2=new Jugador(2, raza,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22);
         Menu menu = new Menu(contador, jugador1, jugador2);
         Menu menu2 = new Menu(contador, jugador2, jugador1);
         
         System.out.println("La raza del jugador "+ jugador1.getNum()+ " es "+ jugador1.getRaza());
         System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
         while(cont!=-1){
-            if(cont%2==0){
-                
+            if(cont%2==0){  
                 menu.menuJugador();
                 cont=jugador1.fase(cont);
             }
-            else{
-                
+            else{ 
                 menu2.menuJugador();
                 cont=jugador2.fase(cont);
             }
         }
-       
-        
-        
     }
     
 }
