@@ -15,23 +15,14 @@ import java.util.Scanner;
  * @author HP PC
  */
 public class Menu {
-    public ArrayList<Mago> generador_oro=new ArrayList<>();
-    public ArrayList<Mago> generador_elixir=new ArrayList<>();
-    public ArrayList<Mago> generador_gema=new ArrayList<>();
-    public ArrayList<Mago> entrenar=new ArrayList<>();
-    public ArrayList<Mago> vehiculo1=new ArrayList<>();
-    public ArrayList<Mago> vehiculo2=new ArrayList<>();
+    public ArrayList<Mago> escuadronm=new ArrayList<Mago>();
+    Mago[] unicoM=new Mago[1];
     public int contador;
     public Jugador jugador;
     public Jugador otro;
     public static Menu menu;
     
      public Menu() {
-    }
-
-    public Menu(Jugador jugador,int contador) {
-        this.jugador = jugador;
-        this.contador=contador;
     }
 
     public Menu(int contador, Jugador jugador, Jugador otro) {
@@ -64,35 +55,6 @@ public class Menu {
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
-
-     
-    public ArrayList<Mago> getGenerador_oro() {
-        return generador_oro;
-    }
-
-    public void setGenerador_oro(ArrayList<Mago> generador_oro) {
-        this.generador_oro = generador_oro;
-    }
-
-    public ArrayList<Mago> getGenerador_elixir() {
-        return generador_elixir;
-    }
-
-    public void setGenerador_elixir(ArrayList<Mago> generador_elixir) {
-        this.generador_elixir = generador_elixir;
-    }
-
-    public ArrayList<Mago> getGenerador_gema() {
-        return generador_gema;
-    }
-
-    public void setGenerador_gema(ArrayList<Mago> generador_gema) {
-        this.generador_gema = generador_gema;
-    }
-
-    
-    
-    
     public static Menu getInstance(){
         if(menu==null){
             menu = new Menu();
@@ -115,7 +77,8 @@ public class Menu {
             System.out.println("9. Crear edificación para vehiculos 1");
             System.out.println("10. Crear edificación para vehiculos tipo 2");
             System.out.println("11. Mejorar centro de Mando");
-            System.out.println("12. Fin del turno");
+            System.out.println("12. Entrenar tropas");
+            System.out.println("13. Fin del turno");
             AbstractFactory factory;
             factory = Produccion.getFactory("Magos");
             Mago oro1 = factory.getMagos("Generador de Oro");
@@ -255,6 +218,35 @@ public class Menu {
                     break;
                     
                 case 12:
+                    System.out.println("¿Qué numero de tropa desea entrenar?");
+                    System.out.println("1. Escuadron M");
+                    System.out.println("2. Merlin");
+                    Scanner leer2 = new Scanner(System.in);
+                    int op=leer2.nextInt();
+                    if(op==1){
+                        factory = Produccion.getFactory("Magos");
+                        Mago escua = factory.getMagos("EscuadronM");
+                        escua.entrenar();
+                        escuadronm.add(escua);
+                        System.out.println("Se entrenó un EscuadonM");
+                    }
+                    else if(op==2){
+                        if (unicoM[0]==null) {
+                            factory = Produccion.getFactory("Magos");
+                            Mago me = factory.getMagos("Merlin");
+                            unicoM[0]=me;
+                            System.out.println("Se entrenó a Merlin");
+                        }
+                        else{
+                            System.out.println("Solo se puede tener a un Merlin entrenado");
+                        }
+                    }
+                    else{
+                        System.out.println("No eligió ninguna opción");
+                    }
+                    break;
+                    
+                case 13:
                     for (int i = 0; i < getJugador().getRe2().size(); i++) {
                         elixir1 = getJugador().getRe2().get(i);
                         int num = elixir1.recolectar();
@@ -290,6 +282,6 @@ public class Menu {
                 default:
                      System.out.println("");
             }
-        }while(opc!=12);       
+        }while(opc!=13);       
     }
 }

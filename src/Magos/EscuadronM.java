@@ -10,9 +10,18 @@ package Magos;
  * @author HP PC
  */
 public class EscuadronM implements Mago{
-    
+    public boolean estado=false;
     public int vida=0;
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
     public int getVida() {
         return vida;
     }
@@ -46,6 +55,6 @@ public class EscuadronM implements Mago{
 
     @Override
     public void entrenar() {
-        System.out.println("Espere ## turnos para poder atacar");
+        setEstado(true);
     }
 }
