@@ -32,13 +32,16 @@ public class Jugador {
     public  ArrayList<Mago> entrenador;
     public  ArrayList<Mago> vehiculo1;
     public  ArrayList<Mago> vehiculo2;
+    public  ArrayList<Mago> entrenadas;
+    
+    
     
     
     
     public Jugador(){
     }
 
-    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2) {
+    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2,ArrayList<Mago> entrenadas) {
         this.num = num;
         this.raza = raza;
         this.mando = mando;
@@ -48,6 +51,8 @@ public class Jugador {
         this.entrenador = entrenador;
         this.vehiculo1 = vehiculo1;
         this.vehiculo2 = vehiculo2;
+      
+        this.entrenadas=entrenadas;
     }
 
     
@@ -123,6 +128,15 @@ public class Jugador {
     public void setNum(int num) {
         this.num = num;
     }
+
+    public ArrayList<Mago> getEntrenadas() {
+        return entrenadas;
+    }
+
+    public void setEntrenadas(ArrayList<Mago> entrenadas) {
+        this.entrenadas = entrenadas;
+    }
+    
     
     public int fase(int cont){
         if(cont%2==0){

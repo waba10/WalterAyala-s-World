@@ -12,6 +12,16 @@ import Magos.Mago;
  * @author HP PC
  */
 public class Alfombra implements Mago {
+    public boolean estado=false;
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 
     @Override
     public void atacar() {
@@ -36,7 +46,23 @@ public class Alfombra implements Mago {
     }
 
     @Override
-    public void entrenar() {
+    public boolean entrenar() {
+        return estado;
+    }
+
+    @Override
+    public boolean estado() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public void vida() {
     }
     
 }

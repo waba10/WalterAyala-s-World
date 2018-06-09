@@ -16,6 +16,16 @@ import walterayala.s.world.Produccion;
 public class GeneradorOro implements Mago {
     public int Vida=100;
     public int Oro;
+    public boolean estado=false;
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
     
 
     public int getVida() {
@@ -65,7 +75,23 @@ public class GeneradorOro implements Mago {
     }
 
     @Override
-    public void entrenar() {
+    public boolean entrenar() {
+        return estado;
+    }
+
+    @Override
+    public boolean estado() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public void vida() {
     }
     
 }

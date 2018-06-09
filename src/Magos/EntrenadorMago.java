@@ -10,7 +10,17 @@ package Magos;
  * @author HP PC
  */
 public class EntrenadorMago implements Mago {
+    public boolean estado=false;
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
     @Override
     public void atacar() {
     }
@@ -32,8 +42,31 @@ public class EntrenadorMago implements Mago {
     public void generar() {
     }
 
+
     @Override
-    public void entrenar() {
+    public void vida() {
+    }
+
+    @Override
+    public boolean entrenar() {
+    if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+    return estado;
+    }
+
+    @Override
+    public boolean estado() {
+    if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+    return estado;
     }
     
 }

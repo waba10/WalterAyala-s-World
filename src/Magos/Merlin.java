@@ -55,8 +55,29 @@ public class Merlin implements Mago{
     }
 
     @Override
-    public void entrenar() {
-        setEstado(true);
+    public boolean entrenar() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public boolean estado() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public void vida() {
     }
 
 

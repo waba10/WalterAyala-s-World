@@ -14,7 +14,16 @@ import Magos.Mago;
 public class GeneradorElixir implements Mago {
     public int Elixir;
     public int Vida=100;
+    public boolean estado=false;       
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
     public int getVida() {
         return Vida;
     }
@@ -60,7 +69,23 @@ public class GeneradorElixir implements Mago {
     }
 
     @Override
-    public void entrenar() {
+    public boolean entrenar() {
+        return estado;
+    }
+
+    @Override
+    public boolean estado() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public void vida() {
     }
     
 }

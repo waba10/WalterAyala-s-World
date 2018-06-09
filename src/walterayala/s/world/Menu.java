@@ -173,6 +173,7 @@ public class Menu {
                 case 8:
                     factory = Produccion.getFactory("Magos");
                     Mago entrena = factory.getMagos("Entrenador");
+                    entrena.estado();
                     getJugador().getEntrenador().add(entrena);
                     //entrenar.add(entrena);
                     System.out.println("Se construyó una edificación para entrenar");
@@ -218,32 +219,49 @@ public class Menu {
                     break;
                     
                 case 12:
-                    System.out.println("¿Qué numero de tropa desea entrenar?");
-                    System.out.println("1. Escuadron M");
-                    System.out.println("2. Merlin");
-                    Scanner leer2 = new Scanner(System.in);
-                    int op=leer2.nextInt();
-                    if(op==1){
-                        factory = Produccion.getFactory("Magos");
-                        Mago escua = factory.getMagos("EscuadronM");
-                        escua.entrenar();
-                        escuadronm.add(escua);
-                        System.out.println("Se entrenó un EscuadonM");
-                    }
-                    else if(op==2){
-                        if (unicoM[0]==null) {
-                            factory = Produccion.getFactory("Magos");
-                            Mago me = factory.getMagos("Merlin");
-                            unicoM[0]=me;
-                            System.out.println("Se entrenó a Merlin");
+                    int k = 0;
+                    boolean sta = false;
+                    factory = Produccion.getFactory("Magos");
+                    Mago entrenad = factory.getMagos("Entrenador");
+                    if (getJugador().getEntrenador().size() > 0) {
+                        while (sta != true || k==getJugador().getEntrenador().size()) {
+                            entrenad = getJugador().getEntrenador().get(k);
+                            //sta=entrenad.getEstado();
+                            k = k + 1;
                         }
-                        else{
-                            System.out.println("Solo se puede tener a un Merlin entrenado");
+                        if (entrenad.estado() == true) {
+                            System.out.println("¿Qué numero de tropa desea entrenar?");
+                            System.out.println("1. Escuadron M");
+                            System.out.println("2. Merlin");
+                            Scanner leer2 = new Scanner(System.in);
+                            int op = leer2.nextInt();
+                            if (op == 1) {
+                                factory = Produccion.getFactory("Magos");
+                                Mago escua = factory.getMagos("EscuadronM");
+                                escua.entrenar();
+                                escuadronm.add(escua);
+                                System.out.println("Se entrenó un EscuadonM");
+                            } else if (op == 2) {
+                                if (unicoM[0] == null) {
+                                    factory = Produccion.getFactory("Magos");
+                                    Mago me = factory.getMagos("Merlin");
+                                    unicoM[0] = me;
+                                    System.out.println("Se entrenó a Merlin");
+                                } else {
+                                    System.out.println("Solo se puede tener a un Merlin entrenado");
+                                }
+                            } else {
+                                System.out.println("No eligió ninguna opción");
+                            }
+                        } else {
+                            System.out.println("No hay edificación para entrenar disponible");
                         }
+                    } else {
+                        System.out.println("No tiene edificaciones de entrenamiento");
                     }
-                    else{
-                        System.out.println("No eligió ninguna opción");
-                    }
+
+
+                    
                     break;
                     
                 case 13:

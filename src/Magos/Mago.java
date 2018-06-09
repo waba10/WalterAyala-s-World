@@ -15,6 +15,8 @@ public interface Mago {
     void construir();
     int recolectar();
     void generar();
-    void entrenar();
+    boolean entrenar();
+    boolean estado();
+    void vida();
     
 }

@@ -21,7 +21,6 @@ public class EscuadronM implements Mago{
         this.estado = estado;
     }
 
-    
     public int getVida() {
         return vida;
     }
@@ -29,7 +28,7 @@ public class EscuadronM implements Mago{
     public void setVida(int vida) {
         this.vida = vida;
     }
-    
+
     @Override
     public void atacar() {
         System.out.println("30% de daño");
@@ -54,7 +53,28 @@ public class EscuadronM implements Mago{
     }
 
     @Override
-    public void entrenar() {
-        setEstado(true);
+    public boolean entrenar() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public boolean estado() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+        return estado;
+    }
+
+    @Override
+    public void vida() {
     }
 }
