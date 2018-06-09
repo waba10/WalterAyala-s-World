@@ -220,16 +220,26 @@ public class Menu {
                     
                 case 12:
                     int k = 0;
+                    int sup=1000;
                     boolean sta = false;
                     factory = Produccion.getFactory("Magos");
                     Mago entrenad = factory.getMagos("Entrenador");
+                    //sta=getJugador().getEntrenador().get(k).question();
+                    System.out.println(getJugador().getEntrenador().size() > 0);
+                    
                     if (getJugador().getEntrenador().size() > 0) {
-                        while (sta != true || k==getJugador().getEntrenador().size()) {
-                            entrenad = getJugador().getEntrenador().get(k);
-                            //sta=entrenad.getEstado();
-                            k = k + 1;
+
+                        while (k < getJugador().getEntrenador().size()) {
+                            if (getJugador().getEntrenador().get(k).question() != true) {
+                                k = k + 1;
+                            } else {
+                                sup = k;
+                                k=getJugador().getEntrenador().size();
+                            }
+
                         }
-                        if (entrenad.estado() == true) {
+
+                        if (sup!=1000) {
                             System.out.println("¿Qué numero de tropa desea entrenar?");
                             System.out.println("1. Escuadron M");
                             System.out.println("2. Merlin");
@@ -240,13 +250,15 @@ public class Menu {
                                 Mago escua = factory.getMagos("EscuadronM");
                                 escua.entrenar();
                                 escuadronm.add(escua);
+                                getJugador().getEntrenador().get(sup).estado();
                                 System.out.println("Se entrenó un EscuadonM");
                             } else if (op == 2) {
-                                if (unicoM[0] == null) {
+                                if (unicoM[0] == null) { 
                                     factory = Produccion.getFactory("Magos");
                                     Mago me = factory.getMagos("Merlin");
                                     unicoM[0] = me;
                                     System.out.println("Se entrenó a Merlin");
+                                    getJugador().getEntrenador().get(sup).estado();
                                 } else {
                                     System.out.println("Solo se puede tener a un Merlin entrenado");
                                 }

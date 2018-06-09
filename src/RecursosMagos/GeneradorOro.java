@@ -14,7 +14,7 @@ import walterayala.s.world.Produccion;
  * @author HP PC
  */
 public class GeneradorOro implements Mago {
-    public int Vida=100;
+    public int vida=100;
     public int Oro;
     public boolean estado=false;
 
@@ -25,15 +25,13 @@ public class GeneradorOro implements Mago {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    
 
     public int getVida() {
-        return Vida;
+        return vida;
     }
 
-    public void setVida(int Vida) {
-        this.Vida = Vida;
+    public void setVida(int vida) {
+        this.vida = vida;
     }
     
 
@@ -91,7 +89,13 @@ public class GeneradorOro implements Mago {
     }
 
     @Override
-    public void vida() {
+    public int vida() {
+        return vida;
+    }
+
+    @Override
+    public boolean question() {
+        return estado;
     }
     
 }

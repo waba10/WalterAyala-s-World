@@ -75,6 +75,12 @@ public class EscuadronM implements Mago{
     }
 
     @Override
-    public void vida() {
+    public int vida() {
+        return vida;
+    }
+
+    @Override
+    public boolean question() {
+        return estado;
     }
 }

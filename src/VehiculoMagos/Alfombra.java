@@ -13,7 +13,16 @@ import Magos.Mago;
  */
 public class Alfombra implements Mago {
     public boolean estado=false;
+    public int vida=0;
 
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+      
     public boolean isEstado() {
         return estado;
     }
@@ -62,7 +71,13 @@ public class Alfombra implements Mago {
     }
 
     @Override
-    public void vida() {
+    public int vida() {
+        return vida;
+    }
+
+    @Override
+    public boolean question() {
+        return estado;
     }
     
 }

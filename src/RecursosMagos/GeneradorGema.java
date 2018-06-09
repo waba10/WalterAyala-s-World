@@ -12,7 +12,7 @@ import Magos.Mago;
  * @author HP PC
  */
 public class GeneradorGema implements Mago {
-    public int Vida=100;
+    public int vida=100;
     public int Gema;
     public boolean estado=false;
 
@@ -26,11 +26,11 @@ public class GeneradorGema implements Mago {
     
 
     public int getVida() {
-        return Vida;
+        return vida;
     }
 
-    public void setVida(int Vida) {
-        this.Vida = Vida;
+    public void setVida(int vida) {
+        this.vida = vida;
     }
     
 
@@ -84,7 +84,13 @@ public class GeneradorGema implements Mago {
     }
 
     @Override
-    public void vida() {
+    public int vida() {
+        return vida;
+    }
+
+    @Override
+    public boolean question() {
+        return estado;
     }
     
 }

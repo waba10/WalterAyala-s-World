@@ -13,7 +13,7 @@ import Magos.Mago;
  */
 public class GeneradorElixir implements Mago {
     public int Elixir;
-    public int Vida=100;
+    public int vida=100;
     public boolean estado=false;       
 
     public boolean isEstado() {
@@ -25,11 +25,11 @@ public class GeneradorElixir implements Mago {
     }
     
     public int getVida() {
-        return Vida;
+        return vida;
     }
 
-    public void setVida(int Vida) {
-        this.Vida = Vida;
+    public void setVida(int vida) {
+        this.vida = vida;
     }
     
 
@@ -85,7 +85,13 @@ public class GeneradorElixir implements Mago {
     }
 
     @Override
-    public void vida() {
+    public int vida() {
+        return vida;
+    }
+
+    @Override
+    public boolean question() {
+        return estado;
     }
     
 }
