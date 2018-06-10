@@ -79,5 +79,15 @@ public class Alfombra implements Mago {
     public boolean question() {
         return estado;
     }
+
+    @Override
+    public int nombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int fase() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

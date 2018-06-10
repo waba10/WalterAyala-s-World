@@ -65,6 +65,9 @@ public class Menu {
     public void menuJugador(){
         int opc=0;
         do{
+            System.out.println("El Oro a su disposicion es "+getJugador().getMando().getOro());
+            System.out.println("El Elixir a su disposicion es "+getJugador().getMando().getElixir());
+            System.out.println("Las Gemas a su disposicion es "+getJugador().getMando().getGema());
             System.out.println("\n********JUGADOR********");
             System.out.println("1. Recoger Oro");
             System.out.println("2. Recoger Gemas");
@@ -84,27 +87,9 @@ public class Menu {
             Mago oro1 = factory.getMagos("Generador de Oro");
             Mago elixir1 = factory.getMagos("Generador de Elixir");
             Mago gema1 = factory.getMagos("Generador de Gema");
-            
-            
-            /*if(contador==1){
-                if(generador_oro.size()>0){
-                    for (int i = 0; i < generador_oro.size(); i++) {
-                        oro1=generador_oro.get(i);
-                        oro1.generar();
-                
-                    }
-                setContador(0);
-                }
-                
-            }*/
-            
-            
-        
+
             Scanner leer = new Scanner(System.in);
-            
-        
-        
-            
+
             try{
                 System.out.println("\nDigite una opcion: ");
                 opc = leer.nextInt();
@@ -123,12 +108,9 @@ public class Menu {
                         int num1 = getJugador().getMando().getOro();
                         int sum = num + num1;
                         getJugador().getMando().setOro(sum);
-                        //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
-
+                  
                     }
                     System.out.println("Se recogió y se obtuvo esta cantidad total en el centro de mando de oro " + getJugador().getMando().getOro());
-      
-                   
                     break;
                 case 2:
                     for (int i = 0; i < getJugador().getRe3().size(); i++) {
@@ -137,11 +119,8 @@ public class Menu {
                         int num1 = getJugador().getMando().getGema();
                         int sum = num + num1;
                         getJugador().getMando().setGema(sum);
-                        //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
-
                     }
                     System.out.println("Se recogió y se obtuvo esta cantidad total en el centro de mando de  gemas " + getJugador().getMando().getGema());
-                    
                     break;
                 case 3:
                    
@@ -153,7 +132,6 @@ public class Menu {
                     factory = Produccion.getFactory("Magos");
                     Mago oro = factory.getMagos("Generador de Oro");
                     getJugador().getRe1().add(oro);
-                    //generador_oro.add(oro);
                     System.out.println("Se construyó un generador de oro");
                     break;
                 case 6:
@@ -208,10 +186,22 @@ public class Menu {
                     System.out.println(sum);
                     
                     if (getJugador().getMando().getOro() >= sum && getJugador().getMando().getElixir() >= sum && getJugador().getMando().getGema() >= sum) {
-                        getJugador().getMando().level();
-                        System.out.println("El valor ahora de Oro es de " + getJugador().getMando().getCapacidad1());
-                        System.out.println("El valor ahora de Elixir es de " + getJugador().getMando().getCapacidad2());
-                        System.out.println("El valor ahora de Gema es de " + getJugador().getMando().getCapacidad3());
+                        getJugador().getMando().level(ca,ce,ci);
+                        
+                        int num1 = getJugador().getMando().getOro();
+                        double res = num1 - sum;
+                        getJugador().getMando().setOro((int)res);
+                        int num2 = getJugador().getMando().getElixir();
+                        double res2 = num2 - sum;
+                        getJugador().getMando().setElixir((int)res2);
+                        int num3 = getJugador().getMando().getGema();
+                        double res3 = num3 - sum;
+                        getJugador().getMando().setGema((int)res3);
+                    
+                        
+                        System.out.println("El valor de almacenaje ahora de Oro es de " + getJugador().getMando().getCapacidad1());
+                        System.out.println("El valor de almacenaje ahora de Elixir es de " + getJugador().getMando().getCapacidad2());
+                        System.out.println("El valor de almacenaje ahora de Gema es de " + getJugador().getMando().getCapacidad3());
                     }
                     else{
                         System.out.println("No dispone de suficientes recursos");

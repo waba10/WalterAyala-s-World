@@ -68,7 +68,7 @@ public class GeneradorOro implements Mago {
     public void generar() {
            //setOro(Oro+200);
            
-           setOro(Oro+50);
+           setOro(Oro+100);
            
     }
 
@@ -96,6 +96,16 @@ public class GeneradorOro implements Mago {
     @Override
     public boolean question() {
         return estado;
+    }
+
+    @Override
+    public int nombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int fase() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

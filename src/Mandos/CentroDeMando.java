@@ -17,9 +17,6 @@ public class CentroDeMando {
      public int capacidad1=10000;
      public int capacidad2=5000;
      public int capacidad3=3000;
-     int capacidad11=11000;
-     int capacidad22=6500;
-     int capacidad33=4500;
      int capacidad111=12100;
      int capacidad222=8450;
      int capacidad333=6750;
@@ -79,9 +76,9 @@ public class CentroDeMando {
     }
     
     
-    public void level() {
-        setCapacidad1(capacidad11);
-        setCapacidad2(capacidad22);
-        setCapacidad3(capacidad33);
+    public void level(double ca, double ce, double ci) {
+        setCapacidad1((int)ca);
+        setCapacidad2((int)ce);
+        setCapacidad3((int)ci);
     }
 }

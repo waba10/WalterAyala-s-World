@@ -64,7 +64,7 @@ public class GeneradorElixir implements Mago {
 
     @Override
     public void generar() {
-        setElixir(Elixir+50);
+        setElixir(Elixir+100);
         
     }
 
@@ -92,6 +92,16 @@ public class GeneradorElixir implements Mago {
     @Override
     public boolean question() {
         return estado;
+    }
+
+    @Override
+    public int nombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int fase() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

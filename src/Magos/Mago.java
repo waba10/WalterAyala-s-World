@@ -9,15 +9,26 @@ package Magos;
  *
  * @author HP PC
  */
-public interface Mago {   
+public interface Mago { 
+    
     void atacar();
     void defender();
     void construir();
+    //Recolecta los recursos generados
     int recolectar();
+    //Genera los recursos
     void generar();
+    //Cambia de estado si se ha ocupado la edificación para entrenar
     boolean entrenar();
+    //Cambia de estado dependiendo si esta listo para atacar
     boolean estado();
+    //Retorna la vida
     int vida();
+    //Retorna el estado
     boolean question();
+    //Se asigna un nombre dependiendo el tipo de edificacion
+    int nombre();
+    //Se guarda la fase en la que fue creado el objeto
+    int fase();
     
 }
