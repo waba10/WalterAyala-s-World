@@ -484,6 +484,7 @@ public class Menu {
                                     System.out.println("El rival no posee vehiculos de tipo 2");
                                 }
                                 break;
+                               
 
                         }
                        
