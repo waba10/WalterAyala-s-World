@@ -164,7 +164,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getRe1().get(pos).modificar_vida(5);
-                                            if(getOtro().getRe1().get(0).vida()<1){
+                                            if(getOtro().getRe1().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -179,7 +179,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getRe1().get(pos).modificar_vida(20);
-                                            if(getOtro().getRe1().get(0).vida()<1){
+                                            if(getOtro().getRe1().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -222,7 +222,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getRe2().get(pos).modificar_vida(5);
-                                            if(getOtro().getRe2().get(0).vida()<1){
+                                            if(getOtro().getRe2().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -237,7 +237,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getRe2().get(pos).modificar_vida(20);
-                                            if(getOtro().getRe2().get(0).vida()<1){
+                                            if(getOtro().getRe2().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -279,7 +279,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getRe3().get(pos).modificar_vida(5);
-                                            if(getOtro().getRe3().get(0).vida()<1){
+                                            if(getOtro().getRe3().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -294,7 +294,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getRe3().get(pos).modificar_vida(20);
-                                            if(getOtro().getRe3().get(0).vida()<1){
+                                            if(getOtro().getRe3().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -337,7 +337,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getEntrenador().get(pos).modificar_vida(5);
-                                            if(getOtro().getEntrenador().get(0).vida()<1){
+                                            if(getOtro().getEntrenador().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -352,7 +352,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getEntrenador().get(pos).modificar_vida(20);
-                                            if(getOtro().getEntrenador().get(0).vida()<1){
+                                            if(getOtro().getEntrenador().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -394,7 +394,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getVehiculo1().get(pos).modificar_vida(5);
-                                            if(getOtro().getVehiculo1().get(0).vida()<1){
+                                            if(getOtro().getVehiculo1().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -409,7 +409,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getVehiculo1().get(pos).modificar_vida(20);
-                                            if(getOtro().getVehiculo1().get(0).vida()<1){
+                                            if(getOtro().getVehiculo1().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -451,7 +451,7 @@ public class Menu {
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
                                             getOtro().getVehiculo2().get(pos).modificar_vida(5);
-                                            if(getOtro().getVehiculo2().get(0).vida()<1){
+                                            if(getOtro().getVehiculo2().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -466,7 +466,7 @@ public class Menu {
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
                                             getOtro().getVehiculo2().get(pos).modificar_vida(20);
-                                            if(getOtro().getVehiculo2().get(0).vida()<1){
+                                            if(getOtro().getVehiculo2().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
                                             }
                                             else{
@@ -484,7 +484,59 @@ public class Menu {
                                     System.out.println("El rival no posee vehiculos de tipo 2");
                                 }
                                 break;
-                               
+                            case 7:  
+                               if(getOtro().getEntrenador().size()==0){
+                                   
+                                    
+                                    int o2;
+                                    System.out.println("¿Con qué desea atacar?");
+                                    System.out.println("1. Con el escuadron");
+                                    System.out.println("2. Con Merlin");
+                                    o2=leern.nextInt();
+                                    if(o2==1){
+                                        if(getJugador().getEntrenadas().size()>0){
+                                            int vida=getOtro().getMando().getVida();
+                                            vida=vida-5;
+                                            getOtro().getMando().setVida(vida);
+                                            //getOtro().getMando().getVida().modificar_vida(5);
+                                            if(getOtro().getMando().getVida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene escuadrones disponibles");
+                                        }
+                                    }
+                                    else if(o2==2){
+                                         if(unicoM[0]!=null){
+                                            int vida=getOtro().getMando().getVida();
+                                            vida=vida-20;
+                                            getOtro().getMando().setVida(vida);
+                                            if(getOtro().getMando().getVida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{ 
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene a Merlin disponibles");
+                                        }
+                                        
+                                    }
+                                    
+                                
+                                
+                               }
+                               else{
+                                   System.out.println("No has acabado con todas las edificaciones enemigas");
+                               }
+                               break;
 
                         }
                        

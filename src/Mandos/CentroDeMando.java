@@ -10,7 +10,7 @@ package Mandos;
  * @author HP PC
  */
 public class CentroDeMando {
-     public int vida=500;
+     public int vida=10;
      public int oro=200;
      public int elixir=200;
      public int gema=200;
