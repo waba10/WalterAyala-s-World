@@ -44,22 +44,25 @@ public class WalterAyalaSWorld {
         ArrayList<Mago> entrenadas2=new ArrayList<Mago>();
         
         Scanner leer = new Scanner(System.in);
-        System.out.println("Ingrese que raza eligirá");
+        System.out.println("Ingrese que raza eligirá entre: ");
+        System.out.println("Magos     Gigantes     Dragones");
         String raza;
         raza=leer.next();
         
-        /*while(raza!="Magos") {
-            System.out.println("Ingrese que raza eligirá");
+        while(!raza.equalsIgnoreCase("Magos")  && !raza.equalsIgnoreCase("Gigantes") && !raza.equalsIgnoreCase("Dragones")) {
+            System.out.println("Por favor ingrese una raza valida para el jugador 1");
             raza=leer.next();
-        }*/
+        }
         
         Jugador jugador1=new Jugador( 1 , raza, mando1,genoro,genel,gengem,entre,ve1,ve2,entrenadas,atac);
-        System.out.println("Ingrese que raza eligirá");
+        System.out.println("Ingrese que raza eligirá entre: ");
+        System.out.println("Magos     Gigantes     Dragones");
         raza=leer.next();
-        /*while(raza!="Gigantes") {
-            System.out.println("Ingrese que raza eligirá");
+         while(!raza.equalsIgnoreCase("Magos")  && !raza.equalsIgnoreCase("Gigantes") && !raza.equalsIgnoreCase("Dragones")) {
+            System.out.println("Por favor ingrese una raza valida para el jugador 2");
             raza=leer.next();
-        }*/
+        }
+        
         int contador=1;
         Jugador jugador2=new Jugador(2, raza,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2,atac2);
         Menu menu = new Menu(contador, jugador1, jugador2);
