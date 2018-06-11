@@ -11,7 +11,26 @@ package Magos;
  */
 public class EntrenadorMago implements Mago {
     public boolean estado=false;
-    public int vida=0;
+    public int vida=15;
+    public int lista=0;
+    public int posicion=0;
+
+    public int getLista() {
+        return lista;
+    }
+
+    public void setLista(int lista) {
+        this.lista = lista;
+    }
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+    
 
     public int getVida() {
         return vida;
@@ -94,5 +113,32 @@ public class EntrenadorMago implements Mago {
     public int fase() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public int modificar_vida(int num) {
+        setVida(vida-num);
+        return vida;
+    }
+
+    @Override
+    public int lista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int posicion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar_lista(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar_posicion(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

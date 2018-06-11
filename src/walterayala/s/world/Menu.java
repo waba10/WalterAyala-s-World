@@ -87,6 +87,7 @@ public class Menu {
             Mago oro1 = factory.getMagos("Generador de Oro");
             Mago elixir1 = factory.getMagos("Generador de Elixir");
             Mago gema1 = factory.getMagos("Generador de Gema");
+            Mago es2 = factory.getMagos("EscuadronM");
 
             Scanner leer = new Scanner(System.in);
 
@@ -123,8 +124,205 @@ public class Menu {
                     System.out.println("Se recogió y se obtuvo esta cantidad total en el centro de mando de  gemas " + getJugador().getMando().getGema());
                     break;
                 case 3:
-                   
+                    if (getJugador().getEntrenadas().size() > 0 || unicoM[0]!=null) {
+                        System.out.println("¿Que desea atacar del rival?");
+                        System.out.println("1. Generador de Oro");
+                        System.out.println("2. Generador de Elixir");
+                        System.out.println("3. Generador de Gemas");
+                        System.out.println("4. Edificación de entrenamiento");
+                        System.out.println("5. Edificacion de vehiculos tipo 1");
+                        System.out.println("6. Edificación vehiculos tipo 2");
+                        System.out.println("7. Centro de mando");
+                        Scanner leern = new Scanner(System.in);
+                        int o;
+                        o = leern.nextInt();
+                        int vida1 = 15;
+                        int conta = 0;
+                        int dis = 1000;
+                        switch (o) {
+                            case 1:
+                                if (getOtro().getRe1().size() > 0 ) {
+                                    int cantidad=getOtro().getRe1().size();
+                                    Scanner leern2 = new Scanner(System.in);
+                                    System.out.println("¿Cuál de los " + cantidad + " generadores de oro desea atacar?");
+                                    int pos=leern2.nextInt();
+                                    pos=pos-1;
+                                    int o2;
+                                    System.out.println("¿Con qué desea atacar?");
+                                    System.out.println("1. Con el escuadron");
+                                    System.out.println("2. Con Merlin");
+                                    o2=leern.nextInt();
+                                    if(o2==1){
+                                        if(getJugador().getEntrenadas().size()>0){
+                                            int tam=getJugador().getEntrenadas().size();
+                                            tam=tam-1;
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago es = factory.getMagos("EscuadronM");
+                                            es=getJugador().getEntrenadas().get(tam);
+                                            es.modificar_lista(1);
+                                            es.modificar_posicion(pos);
+                                            getJugador().getAtacando().add(es);
+                                            getJugador().getEntrenadas().remove(tam);
+                                            getOtro().getRe1().get(pos).modificar_vida(5);
+                                            if(getOtro().getRe1().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene escuadrones disponibles");
+                                        }
+                                    }
+                                    else if(o2==2){
+                                         if(unicoM[0]!=null){
+                                            getOtro().getRe1().get(pos).modificar_vida(20);
+                                            if(getOtro().getRe1().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene a Merlin disponibles");
+                                        }
+                                        
+                                    }
+                                    
+                                } else {
+                                    System.out.println("El rival no posee generadores de Oro");
+                                }
+                                break;
+                                
+                            case 2:
+                                if (getOtro().getRe2().size() > 0 ) {
+                                    int cantidad=getOtro().getRe2().size();
+                                    Scanner leern2 = new Scanner(System.in);
+                                    System.out.println("¿Cuál de los " + cantidad + " generadores de elixir desea atacar?");
+                                    int pos=leern2.nextInt();
+                                    pos=pos-1;
+                                    int o2;
+                                    System.out.println("¿Con qué desea atacar?");
+                                    System.out.println("1. Con el escuadron");
+                                    System.out.println("2. Con Merlin");
+                                    o2=leern.nextInt();
+                                    if(o2==1){
+                                        if(getJugador().getEntrenadas().size()>0){
+                                            int tam=getJugador().getEntrenadas().size();
+                                            tam=tam-1;
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago es = factory.getMagos("EscuadronM");
+                                            es=getJugador().getEntrenadas().get(tam);
+                                            es.modificar_lista(1);
+                                            es.modificar_posicion(pos);
+                                            getJugador().getAtacando().add(es);
+                                            getJugador().getEntrenadas().remove(tam);
+                                            getOtro().getRe2().get(pos).modificar_vida(5);
+                                            if(getOtro().getRe2().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene escuadrones disponibles");
+                                        }
+                                    }
+                                    else if(o2==2){
+                                         if(unicoM[0]!=null){
+                                            getOtro().getRe2().get(pos).modificar_vida(20);
+                                            if(getOtro().getRe2().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene a Merlin disponibles");
+                                        }
+                                        
+                                    }
+                                    
+                                } else {
+                                    System.out.println("El rival no posee generadores de Elixir");
+                                }
+                                break;
+                            case 3:
+                                if (getOtro().getRe3().size() > 0 ) {
+                                    int cantidad=getOtro().getRe3().size();
+                                    Scanner leern2 = new Scanner(System.in);
+                                    System.out.println("¿Cuál de los " + cantidad + " generadores de gema desea atacar?");
+                                    int pos=leern2.nextInt();
+                                    pos=pos-1;
+                                    int o2;
+                                    System.out.println("¿Con qué desea atacar?");
+                                    System.out.println("1. Con el escuadron");
+                                    System.out.println("2. Con Merlin");
+                                    o2=leern.nextInt();
+                                    if(o2==1){
+                                        if(getJugador().getEntrenadas().size()>0){
+                                            int tam=getJugador().getEntrenadas().size();
+                                            tam=tam-1;
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago es = factory.getMagos("EscuadronM");
+                                            es=getJugador().getEntrenadas().get(tam);
+                                            es.modificar_lista(1);
+                                            es.modificar_posicion(pos);
+                                            getJugador().getAtacando().add(es);
+                                            getJugador().getEntrenadas().remove(tam);
+                                            getOtro().getRe3().get(pos).modificar_vida(5);
+                                            if(getOtro().getRe3().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene escuadrones disponibles");
+                                        }
+                                    }
+                                    else if(o2==2){
+                                         if(unicoM[0]!=null){
+                                            getOtro().getRe3().get(pos).modificar_vida(20);
+                                            if(getOtro().getRe3().get(0).vida()<1){
+                                                System.out.println("Se destruyó");
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida");
+                                            }
+                                                
+                                        }
+                                        else{
+                                            System.out.println("No tiene a Merlin disponibles");
+                                        }
+                                        
+                                    }
+                                    
+                                } else {
+                                    System.out.println("El rival no posee generadores de Elixir");
+                                }
+                                break;
+
+                        }
+                       
+                        
+                        
+                    } else {
+                        System.out.println("No tiene tropas entrenadas");
+                    }
                     break;
+
+                            
                 case 4:
                     
                     break;
@@ -239,7 +437,7 @@ public class Menu {
                                 factory = Produccion.getFactory("Magos");
                                 Mago escua = factory.getMagos("EscuadronM");
                                 escua.entrenar();
-                                escuadronm.add(escua);
+                                getJugador().getEntrenadas().add(escua);
                                 getJugador().getEntrenador().get(sup).estado();
                                 System.out.println("Se entrenó un EscuadonM");
                             } else if (op == 2) {
@@ -292,6 +490,25 @@ public class Menu {
                         gema1=getJugador().getRe3().get(i);
                         gema1.generar();
                 
+                    }
+                    for (int i = 0; i < getJugador().getAtacando().size(); i++) {
+                        es2=getJugador().getAtacando().get(i);
+                        if(es2.lista()==1){
+                           int pos=es2.posicion();
+                            getOtro().getRe1().get(pos).modificar_vida(5);
+                            if(getOtro().getRe1().get(pos).vida()<1){
+                                                System.out.println("Se destruyó el generador "+pos);
+                                                getOtro().getRe1().remove(pos);
+                                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                                getJugador().getEntrenadas().add(es2);
+                                                getJugador().getAtacando().remove(i);
+                                                
+                                            }
+                                            else{
+                                                System.out.println("Sigue con vida el generador "+pos);
+                                            }
+                        }
+                        
                     }
                     System.out.println("Tienes "+ getJugador().getEntrenador().size() + " Para entrenar tropas");
                     System.out.println("Tienes "+ getJugador().getVehiculo1().size() + " vehiculo tipo 1");

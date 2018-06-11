@@ -30,5 +30,14 @@ public interface Mago {
     int nombre();
     //Se guarda la fase en la que fue creado el objeto
     int fase();
+    //Modifica la vida
+    int modificar_vida(int num);
+    //Seleccionar la lista
+    int lista();
+    //Seleccionar posición
+    int posicion();
+    void modificar_lista(int num);
+    void modificar_posicion(int num);
+    
     
 }

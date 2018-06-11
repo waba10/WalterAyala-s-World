@@ -11,8 +11,19 @@ package Magos;
  */
 public class Merlin implements Mago{
     public boolean estado=false;
-    public int vida=0;
+    public int vida=20;
+    public int posicion=0;
+    public int lista=0;
 
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public void setLista(int lista) {
+        this.lista = lista;
+    }
+
+    
     public boolean isEstado() {
         return estado;
     }
@@ -95,6 +106,31 @@ public class Merlin implements Mago{
     public int fase() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public int modificar_vida(int num) {
+        setVida(vida-num);
+        return vida;
+    }
+
+    @Override
+    public int lista() {
+        return lista;
+    }
+
+    @Override
+    public int posicion() {
+        return posicion;
+    }
+
+    @Override
+    public void modificar_lista(int num) {
+        setLista(num);
+    }
+
+    @Override
+    public void modificar_posicion(int num) {
+        setPosicion(num);}
 
 
     

@@ -32,7 +32,7 @@ public class WalterAyalaSWorld {
         ArrayList<Mago> entre=new ArrayList<Mago>();
         ArrayList<Mago> ve1=new ArrayList<Mago>();
         ArrayList<Mago> ve2=new ArrayList<Mago>();
-       
+        ArrayList<Mago> atac=new ArrayList<Mago>();
         ArrayList<Mago> entrenadas=new ArrayList<Mago>();
         ArrayList<Mago> genoro2=new ArrayList<Mago>();
         ArrayList<Mago> genel2=new ArrayList<Mago>();
@@ -40,7 +40,7 @@ public class WalterAyalaSWorld {
         ArrayList<Mago> entre2=new ArrayList<Mago>();
         ArrayList<Mago> ve12=new ArrayList<Mago>();
         ArrayList<Mago> ve22=new ArrayList<Mago>();
-        
+        ArrayList<Mago> atac2=new ArrayList<Mago>();
         ArrayList<Mago> entrenadas2=new ArrayList<Mago>();
         
         Scanner leer = new Scanner(System.in);
@@ -53,7 +53,7 @@ public class WalterAyalaSWorld {
             raza=leer.next();
         }*/
         
-        Jugador jugador1=new Jugador( 1 , raza, mando1,genoro,genel,gengem,entre,ve1,ve2,entrenadas);
+        Jugador jugador1=new Jugador( 1 , raza, mando1,genoro,genel,gengem,entre,ve1,ve2,entrenadas,atac);
         System.out.println("Ingrese que raza eligirá");
         raza=leer.next();
         /*while(raza!="Gigantes") {
@@ -61,7 +61,7 @@ public class WalterAyalaSWorld {
             raza=leer.next();
         }*/
         int contador=1;
-        Jugador jugador2=new Jugador(2, raza,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2);
+        Jugador jugador2=new Jugador(2, raza,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2,atac2);
         Menu menu = new Menu(contador, jugador1, jugador2);
         Menu menu2 = new Menu(contador, jugador2, jugador1);
         

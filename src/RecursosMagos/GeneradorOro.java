@@ -14,7 +14,7 @@ import walterayala.s.world.Produccion;
  * @author HP PC
  */
 public class GeneradorOro implements Mago {
-    public int vida=100;
+    public int vida=15;
     public int Oro;
     public boolean estado=false;
 
@@ -105,6 +105,32 @@ public class GeneradorOro implements Mago {
 
     @Override
     public int fase() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int modificar_vida(int num) {
+        setVida(vida-num);
+        return vida;
+    }
+
+    @Override
+    public int lista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int posicion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar_lista(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void modificar_posicion(int num) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
