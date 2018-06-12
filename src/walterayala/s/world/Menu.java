@@ -178,6 +178,11 @@ public class Menu {
                                     }
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago esa = factory.getMagos("Merlin");
+                                            esa.modificar_lista(1);
+                                            esa.modificar_posicion(pos);
+                                            getJugador().getAtacando().add(esa);
                                             getOtro().getRe1().get(pos).modificar_vida(20);
                                             if(getOtro().getRe1().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
@@ -194,7 +199,7 @@ public class Menu {
                                     }
                                     
                                 } else {
-                                    System.out.println("El rival no posee generadores de Elixir");
+                                    System.out.println("El rival no posee generadores de Oro");
                                 }
                                 break;
                                 
@@ -217,7 +222,7 @@ public class Menu {
                                             factory = Produccion.getFactory("Magos");
                                             Mago es = factory.getMagos("EscuadronM");
                                             es=getJugador().getEntrenadas().get(tam);
-                                            es.modificar_lista(1);
+                                            es.modificar_lista(2);
                                             es.modificar_posicion(pos);
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
@@ -274,7 +279,7 @@ public class Menu {
                                             factory = Produccion.getFactory("Magos");
                                             Mago es = factory.getMagos("EscuadronM");
                                             es=getJugador().getEntrenadas().get(tam);
-                                            es.modificar_lista(1);
+                                            es.modificar_lista(3);
                                             es.modificar_posicion(pos);
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
@@ -332,7 +337,7 @@ public class Menu {
                                             factory = Produccion.getFactory("Magos");
                                             Mago es = factory.getMagos("EscuadronM");
                                             es=getJugador().getEntrenadas().get(tam);
-                                            es.modificar_lista(1);
+                                            es.modificar_lista(4);
                                             es.modificar_posicion(pos);
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
@@ -389,7 +394,7 @@ public class Menu {
                                             factory = Produccion.getFactory("Magos");
                                             Mago es = factory.getMagos("EscuadronM");
                                             es=getJugador().getEntrenadas().get(tam);
-                                            es.modificar_lista(1);
+                                            es.modificar_lista(5);
                                             es.modificar_posicion(pos);
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
@@ -431,7 +436,7 @@ public class Menu {
                                 if (getOtro().getVehiculo2().size() > 0 ) {
                                     int cantidad=getOtro().getVehiculo2().size();
                                     Scanner leern2 = new Scanner(System.in);
-                                    System.out.println("¿Cuál de los " + cantidad + " generadores de gema desea atacar?");
+                                    System.out.println("¿Cuál de los " + cantidad + " vehiculos tipo 2 desea atacar?");
                                     int pos=leern2.nextInt();
                                     pos=pos-1;
                                     int o2;
@@ -446,7 +451,7 @@ public class Menu {
                                             factory = Produccion.getFactory("Magos");
                                             Mago es = factory.getMagos("EscuadronM");
                                             es=getJugador().getEntrenadas().get(tam);
-                                            es.modificar_lista(1);
+                                            es.modificar_lista(6);
                                             es.modificar_posicion(pos);
                                             getJugador().getAtacando().add(es);
                                             getJugador().getEntrenadas().remove(tam);
@@ -465,6 +470,11 @@ public class Menu {
                                     }
                                     else if(o2==2){
                                          if(unicoM[0]!=null){
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago esa = factory.getMagos("Merlin");
+                                            esa.modificar_lista(6);
+                                            getJugador().getAtacando().add(esa);
+                                            //getJugador().getEntrenadas().remove(tam);
                                             getOtro().getVehiculo2().get(pos).modificar_vida(20);
                                             if(getOtro().getVehiculo2().get(pos).vida()<1){
                                                 System.out.println("Se destruyó");
@@ -495,6 +505,14 @@ public class Menu {
                                     o2=leern.nextInt();
                                     if(o2==1){
                                         if(getJugador().getEntrenadas().size()>0){
+                                            int tam=getJugador().getEntrenadas().size();
+                                            tam=tam-1;
+                                            factory = Produccion.getFactory("Magos");
+                                            Mago es = factory.getMagos("EscuadronM");
+                                            es=getJugador().getEntrenadas().get(tam);
+                                            es.modificar_lista(7);
+                                            getJugador().getAtacando().add(es);
+                                            getJugador().getEntrenadas().remove(tam);
                                             int vida=getOtro().getMando().getVida();
                                             vida=vida-5;
                                             getOtro().getMando().setVida(vida);
@@ -717,23 +735,94 @@ public class Menu {
                 
                     }
                     for (int i = 0; i < getJugador().getAtacando().size(); i++) {
-                        es2=getJugador().getAtacando().get(i);
-                        if(es2.lista()==1){
-                           int pos=es2.posicion();
+                        es2 = getJugador().getAtacando().get(i);
+                        if (es2.lista() == 1) {
+                            int pos = es2.posicion();
                             getOtro().getRe1().get(pos).modificar_vida(5);
-                            if(getOtro().getRe1().get(pos).vida()<1){
-                                                System.out.println("Se destruyó el generador "+pos);
-                                                getOtro().getRe1().remove(pos);
-                                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                                getJugador().getEntrenadas().add(es2);
-                                                getJugador().getAtacando().remove(i);
-                                                
-                                            }
-                                            else{
-                                                System.out.println("Sigue con vida el generador "+pos);
-                                            }
+                            if (getOtro().getRe1().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe1().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de oro numero " + pos);
+                            }
                         }
-                        
+                        else if(es2.lista()==2){
+                            int pos=es2.posicion();
+                            getOtro().getRe2().get(pos).modificar_vida(5);
+                            if (getOtro().getRe2().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe2().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de elixir numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==3){
+                            int pos=es2.posicion();
+                            getOtro().getRe3().get(pos).modificar_vida(5);
+                            if (getOtro().getRe3().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe3().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de gemas número " + pos);
+                            }
+                        }
+                        else if(es2.lista()==4){
+                            int pos=es2.posicion();
+                            getOtro().getEntrenador().get(pos).modificar_vida(5);
+                            if (getOtro().getEntrenador().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de entrenamiento " + pos);
+                                getOtro().getEntrenador().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de entrenamiento numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==5){
+                            int pos=es2.posicion();
+                            getOtro().getVehiculo1().get(pos).modificar_vida(5);
+                            if (getOtro().getVehiculo1().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de vehiculos tipo 1 numero " + pos);
+                                getOtro().getVehiculo1().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de vehiculo tipo 1 numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==6){
+                            int pos=es2.posicion();
+                            getOtro().getVehiculo2().get(pos).modificar_vida(5);
+                            if (getOtro().getVehiculo2().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de vehiculos tipo 2 numero " + pos);
+                                getOtro().getVehiculo2().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de vehiculo tipo 2 numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==7){
+                            
+                        }
                     }
                     System.out.println("Tienes "+ getJugador().getEntrenador().size() + " Para entrenar tropas");
                     System.out.println("Tienes "+ getJugador().getVehiculo1().size() + " vehiculo tipo 1");
