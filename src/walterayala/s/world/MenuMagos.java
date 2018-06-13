@@ -14,18 +14,18 @@ import java.util.Scanner;
  *
  * @author HP PC
  */
-public class Menu {
+public class MenuMagos {
     public ArrayList<Mago> escuadronm=new ArrayList<Mago>();
     //Mago[] unicoM=new Mago[1];
     public int contador;
     public Jugador jugador;
     public Jugador otro;
-    public static Menu menu;
+    public static MenuMagos menu;
     
-     public Menu() {
+     public MenuMagos() {
     }
 
-    public Menu(int contador, Jugador jugador, Jugador otro) {
+    public MenuMagos(int contador, Jugador jugador, Jugador otro) {
         this.contador = contador;
         this.jugador = jugador;
         this.otro = otro;
@@ -55,9 +55,9 @@ public class Menu {
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
-    public static Menu getInstance(){
+    public static MenuMagos getInstance(){
         if(menu==null){
-            menu = new Menu();
+            menu = new MenuMagos();
         }
         return menu;
     }
@@ -69,10 +69,15 @@ public class Menu {
         Mago gema1 = factory.getMagos("Generador de Gema");
         Mago es2 = factory.getMagos("EscuadronM");
         for (int i = 0; i < getJugador().getRe2().size(); i++) {
+                        elixir1=getJugador().getRe2().get(i);
+                        elixir1.generar();
+                
+                    }
+        for (int i = 0; i < getJugador().getRe2().size(); i++) {
             elixir1 = getJugador().getRe2().get(i);
             int num = elixir1.recolectar();
                         int num1 = getJugador().getMando().getElixir();
-                        int sum2 = num + num1;
+                        int sum2 = num + num1; 
                         getJugador().getMando().setElixir(sum2);
                         //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
 
@@ -84,11 +89,7 @@ public class Menu {
                         oro1.generar();
                 
                     }
-                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
-                        elixir1=getJugador().getRe2().get(i);
-                        elixir1.generar();
-                
-                    }
+                    
                     for (int i = 0; i < getJugador().getRe3().size(); i++) {
                         gema1=getJugador().getRe3().get(i);
                         gema1.generar();

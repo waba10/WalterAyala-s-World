@@ -68,8 +68,8 @@ public class WalterAyalaSWorld {
         
         int contador=1;
         Jugador jugador2=new Jugador(2, raza,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2,atac2,defendiendo2,unicoM2);
-        Menu menu = new Menu(contador, jugador1, jugador2);
-        Menu menu2 = new Menu(contador, jugador2, jugador1);
+        MenuMagos menu = new MenuMagos(contador, jugador1, jugador2);
+        MenuMagos menu2 = new MenuMagos(contador, jugador2, jugador1);
         
         System.out.println("La raza del jugador "+ jugador1.getNum()+ " es "+ jugador1.getRaza());
         System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
@@ -80,7 +80,7 @@ public class WalterAyalaSWorld {
                 cont=jugador1.fase(cont);
             }
             else{ 
-                menu.Automatico();
+                menu2.Automatico();
                 menu2.menuJugador();
                 cont=jugador2.fase(cont);
             }

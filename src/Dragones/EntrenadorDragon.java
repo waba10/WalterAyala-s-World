@@ -3,27 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gigantes;
+package Dragones;
 
 /**
  *
  * @author HP PC
  */
-public class Ciclope implements Gigante {
+public class EntrenadorDragon implements Dragon {
     public boolean estado=false;
-    public int vida=20;
-    public int posicion=0;
+    public int vida=15;
     public int lista=0;
+    public int posicion=0;
 
-    public void setPosicion(int posicion) {
-        this.posicion = posicion;
+    public int getLista() {
+        return lista;
     }
 
     public void setLista(int lista) {
         this.lista = lista;
     }
 
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
     
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+
     public boolean isEstado() {
         return estado;
     }
@@ -33,28 +50,17 @@ public class Ciclope implements Gigante {
     }
 
     
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
-    
-    
     @Override
     public void atacar() {
-        System.out.println("30% de daño");
     }
-    
+
     @Override
     public void defender() {
-        System.out.println("20% de daño");
     }
 
     @Override
     public void construir() {
-    }
+        System.out.println("Se ha construido una edificacion de Entrenamiento de Magos");}
 
     @Override
     public int recolectar() {
@@ -65,31 +71,32 @@ public class Ciclope implements Gigante {
     public void generar() {
     }
 
-    @Override
-    public boolean entrenar() {
-        if(estado==false){
-            setEstado(true);
-        }
-        else{
-            setEstado(false);
-        }
-        return estado;
-    }
-
-    @Override
-    public boolean estado() {
-        if(estado==false){
-            setEstado(true);
-        }
-        else{
-            setEstado(false);
-        }
-        return estado;
-    }
 
     @Override
     public int vida() {
         return vida;
+    }
+
+    @Override
+    public boolean entrenar() {
+    if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+    return estado;
+    }
+
+    @Override
+    public boolean estado() {
+    if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
+    return estado;
     }
 
     @Override
@@ -115,24 +122,22 @@ public class Ciclope implements Gigante {
 
     @Override
     public int lista() {
-        return lista;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int posicion() {
-        return posicion;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void modificar_lista(int num) {
-        setLista(num);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void modificar_posicion(int num) {
-        setPosicion(num);}
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-
-    
-    
 }
