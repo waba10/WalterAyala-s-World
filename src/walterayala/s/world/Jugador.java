@@ -34,6 +34,8 @@ public class Jugador {
     public  ArrayList<Mago> vehiculo2;
     public  ArrayList<Mago> entrenadas;
     public  ArrayList<Mago> atacando;
+    public  ArrayList<Mago> defendiendo;
+    public Mago[] unicoM;
     
     
      
@@ -41,7 +43,7 @@ public class Jugador {
     public Jugador(){
     }
 
-    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2,ArrayList<Mago> entrenadas, ArrayList<Mago> atacando) {
+    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2, ArrayList<Mago> entrenadas, ArrayList<Mago> atacando, ArrayList<Mago> defendiendo, Mago[] unicoM) {
         this.num = num;
         this.raza = raza;
         this.mando = mando;
@@ -51,10 +53,31 @@ public class Jugador {
         this.entrenador = entrenador;
         this.vehiculo1 = vehiculo1;
         this.vehiculo2 = vehiculo2;
-        this.entrenadas=entrenadas;
-        this.atacando=atacando;
+        this.entrenadas = entrenadas;
+        this.atacando = atacando;
+        this.defendiendo = defendiendo;
+        this.unicoM = unicoM;
+    }
+    
+
+    public Mago[] getUnicoM() {
+        return unicoM;
     }
 
+    public void setUnicoM(Mago[] unicoM) {
+        this.unicoM = unicoM;
+    }
+
+    
+
+    public ArrayList<Mago> getDefendiendo() {
+        return defendiendo;
+    }
+
+    public void setDefendiendo(ArrayList<Mago> defendiendo) {
+        this.defendiendo = defendiendo;
+    }
+    
     public ArrayList<Mago> getAtacando() {
         return atacando;
     }

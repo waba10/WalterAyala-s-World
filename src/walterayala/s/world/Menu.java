@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class Menu {
     public ArrayList<Mago> escuadronm=new ArrayList<Mago>();
-    Mago[] unicoM=new Mago[1];
+    //Mago[] unicoM=new Mago[1];
     public int contador;
     public Jugador jugador;
     public Jugador otro;
@@ -126,7 +126,7 @@ public class Menu {
                 case 3:
                     if (getJugador().getVehiculo2().size() > 0 || getJugador().getVehiculo1().size() > 0) {
 
-                        if (getJugador().getEntrenadas().size() > 0 || unicoM[0] != null) {
+                        if (getJugador().getEntrenadas().size() > 0 || getJugador().getUnicoM()[0] != null) {
                             System.out.println("¿Que desea atacar del rival?");
                             System.out.println("1. Generador de Oro");
                             System.out.println("2. Generador de Elixir");
@@ -207,7 +207,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -299,7 +299,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -385,7 +385,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -472,7 +472,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -558,7 +558,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -644,7 +644,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -735,7 +735,7 @@ public class Menu {
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
-                                            if (unicoM[0] != null) {
+                                            if (getJugador().getUnicoM()[0] != null) {
                                                 if (v == 1) {
                                                     if (getJugador().getVehiculo1().size() > 0) {
                                                         getJugador().getVehiculo1().remove(getJugador().getVehiculo1().size() - 1);
@@ -786,7 +786,45 @@ public class Menu {
 
                             
                 case 4:
-                    
+                    if(getOtro().getAtacando().size()>0 && getJugador().getEntrenadas().size()>0){
+                        System.out.println("¿Qué desea atacar?");
+                        System.out.println("1. Un escuadron");
+                        System.out.println("2. De Merlin");
+                         Scanner def = new Scanner(System.in);
+                          Scanner defop = new Scanner(System.in);
+                         int op4=def.nextInt();
+                         if(op4==1){
+                             System.out.println("Cual de los "+ getOtro().getAtacando().size()+" escuadrones del rival desea atacar");
+                             int op41=defop.nextInt();
+                             factory = Produccion.getFactory("Magos");
+                             Mago esc = factory.getMagos("EscuadronM");
+                             esc=getJugador().getEntrenadas().get(getJugador().getEntrenadas().size()-1);
+                             esc.modificar_posicion(op41);
+                             esc.modificar_lista(8);
+                             getOtro().getAtacando().get(op41).modificar_vida(5);
+                             if(getOtro().getAtacando().get(op41).vida()<1){
+                                 System.out.println("Se destruyó la tropa enemiga");
+                                 getOtro().getAtacando().remove(op4);
+                                 System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
+                             }
+                             else{
+                                 System.out.println("Sigue con vida");
+                             }
+                         }
+                         else{
+                             factory = Produccion.getFactory("Magos");
+                             Mago esc = factory.getMagos("Merlin");
+                             esc=getJugador().getUnicoM()[0];
+                             
+                             
+                         }
+                        
+                        
+                        
+                    }
+                    else{
+                        System.out.println("El rival no tiene tropas en ataque o no dispone de tropas para defenderse");
+                    }
                     break;
                 case 5:
                     factory = Produccion.getFactory("Magos");
@@ -903,10 +941,10 @@ public class Menu {
                                 getJugador().getEntrenador().get(sup).estado();
                                 System.out.println("Se entrenó un EscuadonM");
                             } else if (op == 2) {
-                                if (unicoM[0] == null) { 
+                                if (getJugador().getUnicoM()[0] == null) { 
                                     factory = Produccion.getFactory("Magos");
                                     Mago me = factory.getMagos("Merlin");
-                                    unicoM[0] = me;
+                                    getJugador().getUnicoM()[0] = me;
                                     System.out.println("Se entrenó a Merlin");
                                     getJugador().getEntrenador().get(sup).estado();
                                 } else {
