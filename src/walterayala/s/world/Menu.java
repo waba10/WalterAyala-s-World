@@ -786,44 +786,58 @@ public class Menu {
 
                             
                 case 4:
-                    if(getOtro().getAtacando().size()>0 && getJugador().getEntrenadas().size()>0){
+                    if (getOtro().getAtacando().size() > 0 /*&& getJugador().getEntrenadas().size()>0*/) {
+                        Scanner def = new Scanner(System.in);
                         System.out.println("¿Qué desea atacar?");
                         System.out.println("1. Un escuadron");
                         System.out.println("2. De Merlin");
-                         Scanner def = new Scanner(System.in);
-                          Scanner defop = new Scanner(System.in);
-                         int op4=def.nextInt();
-                         if(op4==1){
-                             System.out.println("Cual de los "+ getOtro().getAtacando().size()+" escuadrones del rival desea atacar");
-                             int op41=defop.nextInt();
-                             factory = Produccion.getFactory("Magos");
-                             Mago esc = factory.getMagos("EscuadronM");
-                             esc=getJugador().getEntrenadas().get(getJugador().getEntrenadas().size()-1);
-                             esc.modificar_posicion(op41);
-                             esc.modificar_lista(8);
-                             getOtro().getAtacando().get(op41).modificar_vida(5);
-                             if(getOtro().getAtacando().get(op41).vida()<1){
-                                 System.out.println("Se destruyó la tropa enemiga");
-                                 getOtro().getAtacando().remove(op4);
-                                 System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
-                             }
-                             else{
-                                 System.out.println("Sigue con vida");
-                             }
-                         }
-                         else{
-                             factory = Produccion.getFactory("Magos");
-                             Mago esc = factory.getMagos("Merlin");
-                             esc=getJugador().getUnicoM()[0];
-                             
-                             
-                         }
-                        
-                        
-                        
-                    }
-                    else{
-                        System.out.println("El rival no tiene tropas en ataque o no dispone de tropas para defenderse");
+                        int op4 = def.nextInt();
+                        Scanner defop = new Scanner(System.in);
+                        System.out.println("Cual de los " + getOtro().getAtacando().size() + " escuadrones del rival desea atacar");
+                        int op41 = defop.nextInt();
+
+                        switch (op4) {
+                            case 1:
+                                if (getJugador().getEntrenadas().size() > 0) {
+                                    factory = Produccion.getFactory("Magos");
+                                    Mago esc = factory.getMagos("EscuadronM");
+                                    esc = getJugador().getEntrenadas().get(getJugador().getEntrenadas().size() - 1);
+                                    esc.modificar_posicion(op41);
+                                    esc.modificar_lista(8);
+                                    getOtro().getAtacando().get(op41).modificar_vida(5);
+                                    if (getOtro().getAtacando().get(op41).vida() < 1) {
+                                        System.out.println("Se destruyó la tropa enemiga");
+                                        getOtro().getAtacando().remove(op4);
+                                        System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
+                                    } else {
+                                        System.out.println("Sigue con vida");
+                                    }
+                                } else {
+                                    System.out.println("No dispone de tropas entrenadas");
+                                }
+                                break;
+                            case 2:
+                                if (getJugador().getUnicoM()[0] != null) {
+                                    factory = Produccion.getFactory("Magos");
+                                    Mago esc = factory.getMagos("Merlin");
+                                    esc = getJugador().getUnicoM()[0];
+                                    esc.modificar_lista(8);
+                                    esc.modificar_posicion(op41);
+                                    getOtro().getAtacando().get(op41).modificar_vida(20);
+                                    if (getOtro().getAtacando().get(op41).vida() < 1) {
+                                        System.out.println("Se destruyó la tropa enemiga");
+                                        getOtro().getAtacando().remove(op4);
+                                        System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
+                                    } else {
+                                        System.out.println("Sigue con vida");
+                                    }
+                                } else {
+                                    System.out.println("No tiene entrenado a Merlin");
+                                }
+                                break;
+                        }
+                    } else {
+                        System.out.println("El rival no tiene tropas en ataque");
                     }
                     break;
                 case 5:
