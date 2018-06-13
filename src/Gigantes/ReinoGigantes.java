@@ -9,6 +9,11 @@ package Gigantes;
 import walterayala.s.world.AbstractFactory;
 import Magos.Mago;
 import Dragones.Dragon;
+import RecursosGigantes.GeneradorPlata;
+import RecursosGigantes.GeneradorPosion;
+import RecursosGigantes.GeneradorRubi;
+import VehiculoGigantes.Bote;
+import VehiculoGigantes.Camion;
 
 /**
  *
@@ -23,6 +28,18 @@ public class ReinoGigantes implements AbstractFactory{
                 return new EscuadronG();
             case "Ciclope":
                 return new Ciclope();
+            case "Bote":
+                return new Bote();
+            case "Camion":
+                return new Camion();
+            case "Entrenador":
+                return new EntrenadorGigante();
+            case "Generador Plata":
+                return new GeneradorPlata();
+            case "Generador Posion":
+                return new GeneradorPosion();
+            case "Generador Rubi":
+                return new GeneradorRubi();
         }
         return null;
     }
