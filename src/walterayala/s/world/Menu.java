@@ -61,6 +61,131 @@ public class Menu {
         }
         return menu;
     }
+    public void Automatico(){
+        AbstractFactory factory;
+        factory = Produccion.getFactory("Magos");
+        Mago oro1 = factory.getMagos("Generador de Oro");
+        Mago elixir1 = factory.getMagos("Generador de Elixir");
+        Mago gema1 = factory.getMagos("Generador de Gema");
+        Mago es2 = factory.getMagos("EscuadronM");
+        for (int i = 0; i < getJugador().getRe2().size(); i++) {
+            elixir1 = getJugador().getRe2().get(i);
+            int num = elixir1.recolectar();
+                        int num1 = getJugador().getMando().getElixir();
+                        int sum2 = num + num1;
+                        getJugador().getMando().setElixir(sum2);
+                        //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
+
+                    }
+                    System.out.println("Esta recogió y se obtuvo esta cantidad total en el centro de mando de elixir " + getJugador().getMando().getElixir());
+                    for (int i = 0; i < getJugador().getRe1().size(); i++) {
+                        System.out.println("Se hizo la generacion "+i);
+                        oro1=getJugador().getRe1().get(i);
+                        oro1.generar();
+                
+                    }
+                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
+                        elixir1=getJugador().getRe2().get(i);
+                        elixir1.generar();
+                
+                    }
+                    for (int i = 0; i < getJugador().getRe3().size(); i++) {
+                        gema1=getJugador().getRe3().get(i);
+                        gema1.generar();
+                
+                    }
+                    for (int i = 0; i < getJugador().getAtacando().size(); i++) {
+                        es2 = getJugador().getAtacando().get(i);
+                        if (es2.lista() == 1) {
+                            int pos = es2.posicion();
+                            getOtro().getRe1().get(pos).modificar_vida(5);
+                            if (getOtro().getRe1().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe1().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de oro numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==2){
+                            int pos=es2.posicion();
+                            getOtro().getRe2().get(pos).modificar_vida(5);
+                            if (getOtro().getRe2().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe2().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de elixir numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==3){
+                            int pos=es2.posicion();
+                            getOtro().getRe3().get(pos).modificar_vida(5);
+                            if (getOtro().getRe3().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el generador " + pos);
+                                getOtro().getRe3().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el generador de gemas número " + pos);
+                            }
+                        }
+                        else if(es2.lista()==4){
+                            int pos=es2.posicion();
+                            getOtro().getEntrenador().get(pos).modificar_vida(5);
+                            if (getOtro().getEntrenador().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de entrenamiento " + pos);
+                                getOtro().getEntrenador().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de entrenamiento numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==5){
+                            int pos=es2.posicion();
+                            getOtro().getVehiculo1().get(pos).modificar_vida(5);
+                            if (getOtro().getVehiculo1().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de vehiculos tipo 1 numero " + pos);
+                                getOtro().getVehiculo1().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de vehiculo tipo 1 numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==6){
+                            int pos=es2.posicion();
+                            getOtro().getVehiculo2().get(pos).modificar_vida(5);
+                            if (getOtro().getVehiculo2().get(pos).vida() < 1) {
+                                System.out.println("Se destruyó el  edificio de vehiculos tipo 2 numero " + pos);
+                                getOtro().getVehiculo2().remove(pos);
+                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
+                                getJugador().getEntrenadas().add(es2);
+                                getJugador().getAtacando().remove(i);
+
+                            } else {
+                                System.out.println("Sigue con vida el edificio de vehiculo tipo 2 numero " + pos);
+                            }
+                        }
+                        else if(es2.lista()==7){
+                            
+                        }
+                    }
+        
+    }
     
     public void menuJugador(){
         int opc=0;
@@ -788,13 +913,14 @@ public class Menu {
                 case 4:
                     if (getOtro().getAtacando().size() > 0 /*&& getJugador().getEntrenadas().size()>0*/) {
                         Scanner def = new Scanner(System.in);
-                        System.out.println("¿Qué desea atacar?");
+                        System.out.println("¿Con qué desea defender?");
                         System.out.println("1. Un escuadron");
                         System.out.println("2. De Merlin");
                         int op4 = def.nextInt();
                         Scanner defop = new Scanner(System.in);
                         System.out.println("Cual de los " + getOtro().getAtacando().size() + " escuadrones del rival desea atacar");
                         int op41 = defop.nextInt();
+                        op41=op41-1;
 
                         switch (op4) {
                             case 1:
@@ -807,7 +933,7 @@ public class Menu {
                                     getOtro().getAtacando().get(op41).modificar_vida(5);
                                     if (getOtro().getAtacando().get(op41).vida() < 1) {
                                         System.out.println("Se destruyó la tropa enemiga");
-                                        getOtro().getAtacando().remove(op4);
+                                        getOtro().getAtacando().remove(op41);
                                         System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
                                     } else {
                                         System.out.println("Sigue con vida");
@@ -826,7 +952,7 @@ public class Menu {
                                     getOtro().getAtacando().get(op41).modificar_vida(20);
                                     if (getOtro().getAtacando().get(op41).vida() < 1) {
                                         System.out.println("Se destruyó la tropa enemiga");
-                                        getOtro().getAtacando().remove(op4);
+                                        getOtro().getAtacando().remove(op41);
                                         System.out.println("Su tropa vuelve a estar a su disposición nuevamente");
                                     } else {
                                         System.out.println("Sigue con vida");
@@ -979,122 +1105,7 @@ public class Menu {
                     break;
                     
                 case 13:
-                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
-                        elixir1 = getJugador().getRe2().get(i);
-                        int num = elixir1.recolectar();
-                        int num1 = getJugador().getMando().getElixir();
-                        int sum2 = num + num1;
-                        getJugador().getMando().setElixir(sum2);
-                        //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
-
-                    }
-                    System.out.println("Esta recogió y se obtuvo esta cantidad total en el centro de mando de elixir " + getJugador().getMando().getElixir());
-                    for (int i = 0; i < getJugador().getRe1().size(); i++) {
-                        System.out.println("Se hizo la generacion "+i);
-                        oro1=getJugador().getRe1().get(i);
-                        oro1.generar();
-                
-                    }
-                    for (int i = 0; i < getJugador().getRe2().size(); i++) {
-                        elixir1=getJugador().getRe2().get(i);
-                        elixir1.generar();
-                
-                    }
-                    for (int i = 0; i < getJugador().getRe3().size(); i++) {
-                        gema1=getJugador().getRe3().get(i);
-                        gema1.generar();
-                
-                    }
-                    for (int i = 0; i < getJugador().getAtacando().size(); i++) {
-                        es2 = getJugador().getAtacando().get(i);
-                        if (es2.lista() == 1) {
-                            int pos = es2.posicion();
-                            getOtro().getRe1().get(pos).modificar_vida(5);
-                            if (getOtro().getRe1().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el generador " + pos);
-                                getOtro().getRe1().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el generador de oro numero " + pos);
-                            }
-                        }
-                        else if(es2.lista()==2){
-                            int pos=es2.posicion();
-                            getOtro().getRe2().get(pos).modificar_vida(5);
-                            if (getOtro().getRe2().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el generador " + pos);
-                                getOtro().getRe2().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el generador de elixir numero " + pos);
-                            }
-                        }
-                        else if(es2.lista()==3){
-                            int pos=es2.posicion();
-                            getOtro().getRe3().get(pos).modificar_vida(5);
-                            if (getOtro().getRe3().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el generador " + pos);
-                                getOtro().getRe3().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el generador de gemas número " + pos);
-                            }
-                        }
-                        else if(es2.lista()==4){
-                            int pos=es2.posicion();
-                            getOtro().getEntrenador().get(pos).modificar_vida(5);
-                            if (getOtro().getEntrenador().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el  edificio de entrenamiento " + pos);
-                                getOtro().getEntrenador().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el edificio de entrenamiento numero " + pos);
-                            }
-                        }
-                        else if(es2.lista()==5){
-                            int pos=es2.posicion();
-                            getOtro().getVehiculo1().get(pos).modificar_vida(5);
-                            if (getOtro().getVehiculo1().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el  edificio de vehiculos tipo 1 numero " + pos);
-                                getOtro().getVehiculo1().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el edificio de vehiculo tipo 1 numero " + pos);
-                            }
-                        }
-                        else if(es2.lista()==6){
-                            int pos=es2.posicion();
-                            getOtro().getVehiculo2().get(pos).modificar_vida(5);
-                            if (getOtro().getVehiculo2().get(pos).vida() < 1) {
-                                System.out.println("Se destruyó el  edificio de vehiculos tipo 2 numero " + pos);
-                                getOtro().getVehiculo2().remove(pos);
-                                System.out.println("El escuadron se pondrá a su disposición para un nuevo ataque");
-                                getJugador().getEntrenadas().add(es2);
-                                getJugador().getAtacando().remove(i);
-
-                            } else {
-                                System.out.println("Sigue con vida el edificio de vehiculo tipo 2 numero " + pos);
-                            }
-                        }
-                        else if(es2.lista()==7){
-                            
-                        }
-                    }
+                   
                     System.out.println("Tienes "+ getJugador().getEntrenador().size() + " Para entrenar tropas");
                     System.out.println("Tienes "+ getJugador().getVehiculo1().size() + " vehiculo tipo 1");
                     System.out.println("Tienes "+ getJugador().getVehiculo2().size() + " vehiculo tipo 2 ");

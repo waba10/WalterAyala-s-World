@@ -75,10 +75,12 @@ public class WalterAyalaSWorld {
         System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
         while(cont!=-1){
             if(cont%2==0){  
+                menu.Automatico();
                 menu.menuJugador();
                 cont=jugador1.fase(cont);
             }
             else{ 
+                menu.Automatico();
                 menu2.menuJugador();
                 cont=jugador2.fase(cont);
             }
