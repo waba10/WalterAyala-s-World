@@ -6,10 +6,10 @@
 package walterayala.s.world;
 
 
-import Magos.Mago;
 import Mandos.CentroDeMando;
 import RecursosMagos.GeneradorOro;
 import java.util.ArrayList;
+import Magos.Raza;
 
 /**
  *
@@ -24,26 +24,23 @@ public class Jugador {
     */
     //public ArrayList<GeneradorOro> geno;
     public int num;
-    public String raza;
+    public int raza;
     public CentroDeMando mando;
-    public  ArrayList<Mago> re1;
-    public  ArrayList<Mago> re2;
-    public  ArrayList<Mago> re3;
-    public  ArrayList<Mago> entrenador;
-    public  ArrayList<Mago> vehiculo1;
-    public  ArrayList<Mago> vehiculo2;
-    public  ArrayList<Mago> entrenadas;
-    public  ArrayList<Mago> atacando;
-    public  ArrayList<Mago> defendiendo;
-    public Mago[] unicoM;
-    
-    
-     
-    
+    public  ArrayList<Raza> re1;
+    public  ArrayList<Raza> re2;
+    public  ArrayList<Raza> re3;
+    public  ArrayList<Raza> entrenador;
+    public  ArrayList<Raza> vehiculo1;
+    public  ArrayList<Raza> vehiculo2;
+    public  ArrayList<Raza> entrenadas;
+    public  ArrayList<Raza> atacando;
+    public  ArrayList<Raza> defendiendo;
+    public Raza[] unicoM;
+ 
     public Jugador(){
     }
 
-    public Jugador(int num, String raza, CentroDeMando mando, ArrayList<Mago> re1, ArrayList<Mago> re2, ArrayList<Mago> re3, ArrayList<Mago> entrenador, ArrayList<Mago> vehiculo1, ArrayList<Mago> vehiculo2, ArrayList<Mago> entrenadas, ArrayList<Mago> atacando, ArrayList<Mago> defendiendo, Mago[] unicoM) {
+    public Jugador(int num, int raza, CentroDeMando mando, ArrayList<Raza> re1, ArrayList<Raza> re2, ArrayList<Raza> re3, ArrayList<Raza> entrenador, ArrayList<Raza> vehiculo1, ArrayList<Raza> vehiculo2, ArrayList<Raza> entrenadas, ArrayList<Raza> atacando, ArrayList<Raza> defendiendo, Raza[] unicoM) {
         this.num = num;
         this.raza = raza;
         this.mando = mando;
@@ -58,89 +55,91 @@ public class Jugador {
         this.defendiendo = defendiendo;
         this.unicoM = unicoM;
     }
-    
 
-    public Mago[] getUnicoM() {
+    public int getRaza() {
+        return raza;
+    }
+
+    public void setRaza(int raza) {
+        this.raza = raza;
+    }
+
+   
+
+
+    public Raza[] getUnicoM() {
         return unicoM;
     }
 
-    public void setUnicoM(Mago[] unicoM) {
+    public void setUnicoM(Raza[] unicoM) {
         this.unicoM = unicoM;
     }
 
     
 
-    public ArrayList<Mago> getDefendiendo() {
+    public ArrayList<Raza> getDefendiendo() {
         return defendiendo;
     }
 
-    public void setDefendiendo(ArrayList<Mago> defendiendo) {
+    public void setDefendiendo(ArrayList<Raza> defendiendo) {
         this.defendiendo = defendiendo;
     }
     
-    public ArrayList<Mago> getAtacando() {
+    public ArrayList<Raza> getAtacando() {
         return atacando;
     }
 
-    public void setAtacando(ArrayList<Mago> atacando) {
+    public void setAtacando(ArrayList<Raza> atacando) {
         this.atacando = atacando;
     }
 
     
-    public ArrayList<Mago> getRe1() {
+    public ArrayList<Raza> getRe1() {
         return re1;
     }
 
-    public void setRe1(ArrayList<Mago> re1) {
+    public void setRe1(ArrayList<Raza> re1) {
         this.re1 = re1;
     }
 
-    public ArrayList<Mago> getRe2() {
+    public ArrayList<Raza> getRe2() {
         return re2;
     }
 
-    public void setRe2(ArrayList<Mago> re2) {
+    public void setRe2(ArrayList<Raza> re2) {
         this.re2 = re2;
     }
 
-    public ArrayList<Mago> getRe3() {
+    public ArrayList<Raza> getRe3() {
         return re3;
     }
 
-    public void setRe3(ArrayList<Mago> re3) {
+    public void setRe3(ArrayList<Raza> re3) {
         this.re3 = re3;
     }
 
-    public ArrayList<Mago> getEntrenador() {
+    public ArrayList<Raza> getEntrenador() {
         return entrenador;
     }
 
-    public void setEntrenador(ArrayList<Mago> entrenador) {
+    public void setEntrenador(ArrayList<Raza> entrenador) {
         this.entrenador = entrenador;
     }
 
-    public ArrayList<Mago> getVehiculo1() {
+    public ArrayList<Raza> getVehiculo1() {
         return vehiculo1;
     }
 
-    public void setVehiculo1(ArrayList<Mago> vehiculo1) {
+    public void setVehiculo1(ArrayList<Raza> vehiculo1) {
         this.vehiculo1 = vehiculo1;
     }
 
-    public ArrayList<Mago> getVehiculo2() {
+    public ArrayList<Raza> getVehiculo2() {
         return vehiculo2;
     }
 
-    public void setVehiculo2(ArrayList<Mago> vehiculo2) {
+    public void setVehiculo2(ArrayList<Raza> vehiculo2) {
         this.vehiculo2 = vehiculo2;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
     }
 
     public CentroDeMando getMando() {
@@ -160,11 +159,11 @@ public class Jugador {
         this.num = num;
     }
 
-    public ArrayList<Mago> getEntrenadas() {
+    public ArrayList<Raza> getEntrenadas() {
         return entrenadas;
     }
 
-    public void setEntrenadas(ArrayList<Mago> entrenadas) {
+    public void setEntrenadas(ArrayList<Raza> entrenadas) {
         this.entrenadas = entrenadas;
     }
     

@@ -5,13 +5,13 @@
  */
 package RecursosMagos;
 
-import Magos.Mago;
+import Magos.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class GeneradorElixir implements Mago {
+public class GeneradorElixir implements Raza {
     public int Elixir;
     public int vida=15;
     public boolean estado=false;       
@@ -64,7 +64,7 @@ public class GeneradorElixir implements Mago {
 
     @Override
     public void generar() {
-        setElixir(Elixir+100);
+        setElixir(Elixir+300);
         
     }
 
@@ -127,6 +127,15 @@ public class GeneradorElixir implements Mago {
 
     @Override
     public void modificar_posicion(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generar_doble() {
+         setElixir(Elixir+600);}
+
+    @Override
+    public void vida_inicial() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

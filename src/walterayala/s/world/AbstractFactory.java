@@ -6,17 +6,16 @@
 package walterayala.s.world;
 
 
-import Gigantes.Gigante;
-import Magos.Mago;
-import Dragones.Dragon;
+
+import Magos.Raza;
 
 /**
  *
  * @author HP PC
  */
 public interface AbstractFactory {
-    Mago getMagos(String type);
-    Gigante getGigantes(String type);
-    Dragon getDragones(String type);
+    Raza getMagos(String type);
+    
+    
     
 }

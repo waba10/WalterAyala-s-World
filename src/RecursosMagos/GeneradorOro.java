@@ -5,15 +5,15 @@
  */
 package RecursosMagos;
 
-import Magos.Mago;
 import walterayala.s.world.AbstractFactory;
 import walterayala.s.world.Produccion;
+import Magos.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class GeneradorOro implements Mago {
+public class GeneradorOro implements Raza {
     public int vida=15;
     public int Oro;
     public boolean estado=false;
@@ -68,7 +68,7 @@ public class GeneradorOro implements Mago {
     public void generar() {
            //setOro(Oro+200);
            
-           setOro(Oro+100);
+           setOro(Oro+400);
            
     }
 
@@ -131,6 +131,16 @@ public class GeneradorOro implements Mago {
 
     @Override
     public void modificar_posicion(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generar_doble() {
+        setOro(Oro+800);
+           }
+
+    @Override
+    public void vida_inicial() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

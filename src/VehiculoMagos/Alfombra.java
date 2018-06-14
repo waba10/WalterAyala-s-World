@@ -5,13 +5,13 @@
  */
 package VehiculoMagos;
 
-import Magos.Mago;
+import Magos.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class Alfombra implements Mago {
+public class Alfombra implements Raza {
     public boolean estado=false;
     public int vida=10;
 
@@ -113,6 +113,16 @@ public class Alfombra implements Mago {
 
     @Override
     public void modificar_posicion(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generar_doble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void vida_inicial() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

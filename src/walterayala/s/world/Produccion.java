@@ -5,10 +5,7 @@
  */
 package walterayala.s.world;
 
-import Magos.ReinoMagos;
-import Gigantes.ReinoGigantes;
-
-import Dragones.ReinoDragones;
+import Magos.Reino;
 
 /**
  *
@@ -19,11 +16,9 @@ public class Produccion {
     public static AbstractFactory getFactory(String type){
         switch (type){
             case "Magos":
-                return new ReinoMagos();
-            case "Gigantes":
-                return new ReinoGigantes();
-            case "Dragones":
-                return new ReinoDragones();
+                return new Reino();
+            
+            
             
         }
         return null;

@@ -9,7 +9,7 @@ package Magos;
  *
  * @author HP PC
  */
-public class EscuadronM implements Mago{
+public class EscuadronM implements Raza{
     public boolean estado=false;
     public int vida=20;
     public int posicion=0;
@@ -137,5 +137,15 @@ public class EscuadronM implements Mago{
     @Override
     public void modificar_posicion(int num) {
         setPosicion(num);
+    }
+
+    @Override
+    public void generar_doble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void vida_inicial() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

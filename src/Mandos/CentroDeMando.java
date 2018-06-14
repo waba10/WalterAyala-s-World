@@ -11,9 +11,12 @@ package Mandos;
  */
 public class CentroDeMando {
      public int vida=10;
-     public int oro=200;
-     public int elixir=200;
-     public int gema=200;
+     public int oro=400;
+     public int elixir=300;
+     public int gema=210;
+     public int lava=200;
+     public int diamante=200;
+     public int bronce=200;
      public int capacidad1=10000;
      public int capacidad2=5000;
      public int capacidad3=3000;
@@ -21,6 +24,31 @@ public class CentroDeMando {
      int capacidad222=8450;
      int capacidad333=6750;
 
+    public int getLava() {
+        return lava;
+    }
+
+    public void setLava(int lava) {
+        this.lava = lava;
+    }
+
+    public int getDiamante() {
+        return diamante;
+    }
+
+    public void setDiamante(int diamante) {
+        this.diamante = diamante;
+    }
+
+    public int getBronce() {
+        return bronce;
+    }
+
+    public void setBronce(int bronce) {
+        this.bronce = bronce;
+    }
+
+     
     public int getCapacidad1() {
         return capacidad1;
     }

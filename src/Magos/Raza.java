@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dragones;
+package Magos;
 
 /**
  *
  * @author HP PC
  */
-public interface Dragon {
-     void atacar();
+public interface Raza { 
+    void vida_inicial();
+    void generar_doble();
+    void atacar();
     void defender();
     void construir();
     //Recolecta los recursos generados
@@ -37,5 +39,6 @@ public interface Dragon {
     int posicion();
     void modificar_lista(int num);
     void modificar_posicion(int num);
+    
     
 }

@@ -5,11 +5,13 @@
  */
 package Gigantes;
 
+import Magos.Raza;
+
 /**
  *
  * @author HP PC
  */
-public class EntrenadorGigante implements Gigante {
+public class EntrenadorGigante implements Raza {
     public boolean estado=false;
     public int vida=15;
     public int lista=0;
@@ -137,6 +139,16 @@ public class EntrenadorGigante implements Gigante {
 
     @Override
     public void modificar_posicion(int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generar_doble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void vida_inicial() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

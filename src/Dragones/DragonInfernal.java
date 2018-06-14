@@ -5,11 +5,13 @@
  */
 package Dragones;
 
+import Magos.Raza;
+
 /**
  *
  * @author HP PC
  */
-public class DragonInfernal implements Dragon {
+public class DragonInfernal implements Raza {
     public boolean estado=false;
     public int vida=20;
     public int posicion=0;
@@ -131,6 +133,16 @@ public class DragonInfernal implements Dragon {
     @Override
     public void modificar_posicion(int num) {
         setPosicion(num);}
+
+    @Override
+    public void generar_doble() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void vida_inicial() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 
     

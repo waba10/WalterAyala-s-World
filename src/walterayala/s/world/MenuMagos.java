@@ -5,18 +5,17 @@
  */
 package walterayala.s.world;
 
-import Magos.Mago;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import Magos.Raza;
 
 /**
  *
  * @author HP PC
  */
 public class MenuMagos {
-    public ArrayList<Mago> escuadronm=new ArrayList<Mago>();
-    //Mago[] unicoM=new Mago[1];
+    
     public int contador;
     public Jugador jugador;
     public Jugador otro;
@@ -64,14 +63,18 @@ public class MenuMagos {
     public void Automatico(){
         AbstractFactory factory;
         factory = Produccion.getFactory("Magos");
-        Mago oro1 = factory.getMagos("Generador de Oro");
-        Mago elixir1 = factory.getMagos("Generador de Elixir");
-        Mago gema1 = factory.getMagos("Generador de Gema");
-        Mago es2 = factory.getMagos("EscuadronM");
+        Raza oro1 = factory.getMagos("Generador de Oro");
+        Raza elixir1 = factory.getMagos("Generador de Elixir");
+        Raza gema1 = factory.getMagos("Generador de Gema");
+        Raza es2 = factory.getMagos("EscuadronM");
         for (int i = 0; i < getJugador().getRe2().size(); i++) {
                         elixir1=getJugador().getRe2().get(i);
+                        if(getJugador().getRaza()==1){
+                            elixir1.generar_doble();
+                        }
+                        else{
                         elixir1.generar();
-                
+                        }
                     }
         for (int i = 0; i < getJugador().getRe2().size(); i++) {
             elixir1 = getJugador().getRe2().get(i);
@@ -82,18 +85,26 @@ public class MenuMagos {
                         //System.out.println("Esta esta cantidad de oro " + getJugador().getMando().getOro());
 
                     }
-                    System.out.println("Esta recogió y se obtuvo esta cantidad total en el centro de mando de elixir " + getJugador().getMando().getElixir());
-                    for (int i = 0; i < getJugador().getRe1().size(); i++) {
-                        System.out.println("Se hizo la generacion "+i);
+                   for (int i = 0; i < getJugador().getRe1().size(); i++) {
                         oro1=getJugador().getRe1().get(i);
+                        if(getJugador().getRaza()==1){
+                            oro1.generar_doble();
+                        }
+                        else{
                         oro1.generar();
-                
+                        }
+               
                     }
                     
                     for (int i = 0; i < getJugador().getRe3().size(); i++) {
                         gema1=getJugador().getRe3().get(i);
+                        if(getJugador().getRaza()==1){
+                            gema1.generar_doble();
+                        }
+                        else{
                         gema1.generar();
-                
+                        }
+                       
                     }
                     for (int i = 0; i < getJugador().getAtacando().size(); i++) {
                         es2 = getJugador().getAtacando().get(i);
@@ -187,11 +198,8 @@ public class MenuMagos {
                     }
         
     }
-    
-    public void menuJugador(){
-        int opc=0;
-        do{
-            System.out.println("El Oro a su disposicion es "+getJugador().getMando().getOro());
+    public void Menumag(){
+        System.out.println("El Oro a su disposicion es "+getJugador().getMando().getOro());
             System.out.println("El Elixir a su disposicion es "+getJugador().getMando().getElixir());
             System.out.println("Las Gemas a su disposicion es "+getJugador().getMando().getGema());
             System.out.println("\n********JUGADOR********");
@@ -199,21 +207,79 @@ public class MenuMagos {
             System.out.println("2. Recoger Gemas");
             System.out.println("3. Atacar al rival");
             System.out.println("4. Defender ataque");
-            System.out.println("5. Crear generador de Oro");
-            System.out.println("6. Crear generador de elixir"); 
-            System.out.println("7. Crear generador de gemas"); 
-            System.out.println("8. Crear edificacion para entrenar soldados y escuadrones");
-            System.out.println("9. Crear edificación para vehiculos 1");
-            System.out.println("10. Crear edificación para vehiculos tipo 2");
+            System.out.println("5. Crear generador de Oro (210 gema & 60 elixir)");
+            System.out.println("6. Crear generador de elixir (210 oro & 60 gema"); 
+            System.out.println("7. Crear generador de gemas (210 elixir & 60 oro"); 
+            System.out.println("8. Crear edificacion para entrenar soldados y escuadrones (210 gema & 60 elixir)");
+            System.out.println("9. Crear edificación para vehiculos 1 (210 oro & 60 gema)");
+            System.out.println("10. Crear edificación para vehiculos tipo 2 (210 elixir & 60 oro)");
             System.out.println("11. Mejorar centro de Mando");
             System.out.println("12. Entrenar tropas");
             System.out.println("13. Fin del turno");
+            System.out.println("14. Rendirse");
+    }
+    public void MenuGi(){
+        System.out.println("La Plata a su disposicion es "+getJugador().getMando().getOro());
+            System.out.println("La Posion a su disposicion es "+getJugador().getMando().getElixir());
+            System.out.println("Los Rubies a su disposicion es "+getJugador().getMando().getGema());
+            System.out.println("\n********JUGADOR********");
+            System.out.println("1. Recoger Plata");
+            System.out.println("2. Recoger Rubi");
+            System.out.println("3. Atacar al rival");
+            System.out.println("4. Defender ataque");
+            System.out.println("5. Crear generador de Plata (210 rubi & 60 posion)");
+            System.out.println("6. Crear generador de Posion (210 plata & 60 rubi)"); 
+            System.out.println("7. Crear generador de Rubi (210 posion & 60 plata)"); 
+            System.out.println("8. Crear edificacion para entrenar soldados y escuadrones (210 rubi & 60 posion )");
+            System.out.println("9. Crear edificación para vehiculos 1 (210 plata & 60 rubi)");
+            System.out.println("10. Crear edificación para vehiculos tipo 2 (210 posion & 60 plata)");
+            System.out.println("11. Mejorar centro de Mando");
+            System.out.println("12. Entrenar tropas");
+            System.out.println("13. Fin del turno");
+            System.out.println("14. Rendirse");
+    }
+    public void MenuDra(){
+        System.out.println("El Bronce a su disposicion es "+getJugador().getMando().getOro());
+            System.out.println("La Lava a su disposicion es "+getJugador().getMando().getElixir());
+            System.out.println("Los Diamantes a su disposicion es "+getJugador().getMando().getGema());
+            System.out.println("\n********JUGADOR********");
+            System.out.println("1. Recoger Bronce");
+            System.out.println("2. Recoger Diamante");
+            System.out.println("3. Atacar al rival");
+            System.out.println("4. Defender ataque");
+            System.out.println("5. Crear generador de Bronce (210 diamante & 60 lava)");
+            System.out.println("6. Crear generador de Lava  (210 bronce & 60 diamante)"); 
+            System.out.println("7. Crear generador de Diamante (210 lava & 60 bronce)"); 
+            System.out.println("8. Crear edificacion para entrenar soldados y escuadrones (210 diamante & 60 lava)");
+            System.out.println("9. Crear edificación para vehiculos 1 (210 bronce & 60 diamante)");
+            System.out.println("10. Crear edificación para vehiculos tipo 2 (210 lava & 60 bronce)");
+            System.out.println("11. Mejorar centro de Mando");
+            System.out.println("12. Entrenar tropas");
+            System.out.println("13. Fin del turno");
+            System.out.println("14. Rendirse");
+    }
+    
+    public void menuJugador(){
+        int opc=0;
+        do{
+            if(1==(getJugador().getRaza())){
+                    Menumag();
+                }
+                
+                if(2==(getJugador().getRaza())){
+                    MenuDra();
+                }
+                if(3==(getJugador().getRaza())){
+                   MenuGi();
+                }
+         int precio1=210, precio2=60;
+           
             AbstractFactory factory;
             factory = Produccion.getFactory("Magos");
-            Mago oro1 = factory.getMagos("Generador de Oro");
-            Mago elixir1 = factory.getMagos("Generador de Elixir");
-            Mago gema1 = factory.getMagos("Generador de Gema");
-            Mago es2 = factory.getMagos("EscuadronM");
+            Raza oro1 = factory.getMagos("Generador de Oro");
+            Raza elixir1 = factory.getMagos("Generador de Elixir");
+            Raza gema1 = factory.getMagos("Generador de Gema");
+            Raza es2 = factory.getMagos("EscuadronM");
 
             Scanner leer = new Scanner(System.in);
 
@@ -227,19 +293,21 @@ public class MenuMagos {
             
             switch(opc){    
                 case 1:
-                    for (int i = 0; i <getJugador().getRe1().size(); i++) {
-                        
+               
+                        getJugador().getMando().setOro( getJugador().getMando().getOro()-100);
+                        getJugador().getMando().setElixir( getJugador().getMando().getElixir()-100);
+                        for (int i = 0; i <getJugador().getRe1().size(); i++) {
                         oro1 = getJugador().getRe1().get(i);
-                        int num = oro1.recolectar();
-                        System.out.println("Esto se obtuvo en "+i+" interaccion "+ num);
+                        int num = oro1.recolectar();                    
                         int num1 = getJugador().getMando().getOro();
                         int sum = num + num1;
                         getJugador().getMando().setOro(sum);
-                  
                     }
-                    System.out.println("Se recogió y se obtuvo esta cantidad total en el centro de mando de oro " + getJugador().getMando().getOro());
+                    System.out.println("Se recogió");
+                   
                     break;
                 case 2:
+                    
                     for (int i = 0; i < getJugador().getRe3().size(); i++) {
                         gema1 = getJugador().getRe3().get(i);
                         int num = gema1.recolectar();
@@ -247,7 +315,7 @@ public class MenuMagos {
                         int sum = num + num1;
                         getJugador().getMando().setGema(sum);
                     }
-                    System.out.println("Se recogió y se obtuvo esta cantidad total en el centro de mando de  gemas " + getJugador().getMando().getGema());
+                    System.out.println("Se recogió ");
                     break;
                 case 3:
                     if (getJugador().getVehiculo2().size() > 0 || getJugador().getVehiculo1().size() > 0) {
@@ -280,6 +348,10 @@ public class MenuMagos {
                                 System.out.println("2. Vehiculo de tipo 2");
                                 v = leerv.nextInt();
                             }
+                            
+                             
+                            factory = Produccion.getFactory("Magos");
+                            Raza or1 = factory.getMagos("Generador");
                             
                             switch (o) {
                                 case 1:
@@ -316,7 +388,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(1);
                                                 es.modificar_posicion(pos);
@@ -329,7 +401,7 @@ public class MenuMagos {
                                                     System.out.println("Sigue con vida");
                                                 }
 
-                                            } else {
+                                            } else { 
                                                 System.out.println("No tiene escuadrones disponibles");
                                             }
                                         } else if (o2 == 2) {
@@ -352,7 +424,7 @@ public class MenuMagos {
                                                 }
 
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago esa = factory.getMagos("Merlin");
+                                                Raza esa = factory.getMagos("Merlin");
                                                 esa.modificar_lista(1);
                                                 esa.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(esa);
@@ -408,7 +480,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(2);
                                                 es.modificar_posicion(pos);
@@ -494,7 +566,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(3);
                                                 es.modificar_posicion(pos);
@@ -581,7 +653,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(4);
                                                 es.modificar_posicion(pos);
@@ -667,7 +739,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(5);
                                                 es.modificar_posicion(pos);
@@ -753,7 +825,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(6);
                                                 es.modificar_posicion(pos);
@@ -789,7 +861,7 @@ public class MenuMagos {
                                                 }
 
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago esa = factory.getMagos("Merlin");
+                                                Raza esa = factory.getMagos("Merlin");
                                                 esa.modificar_lista(6);
                                                 getJugador().getAtacando().add(esa);
                                                 //getJugador().getEntrenadas().remove(tam);
@@ -842,7 +914,7 @@ public class MenuMagos {
                                                 int tam = getJugador().getEntrenadas().size();
                                                 tam = tam - 1;
                                                 factory = Produccion.getFactory("Magos");
-                                                Mago es = factory.getMagos("EscuadronM");
+                                                Raza es = factory.getMagos("EscuadronM");
                                                 es = getJugador().getEntrenadas().get(tam);
                                                 es.modificar_lista(7);
                                                 getJugador().getAtacando().add(es);
@@ -927,7 +999,7 @@ public class MenuMagos {
                             case 1:
                                 if (getJugador().getEntrenadas().size() > 0) {
                                     factory = Produccion.getFactory("Magos");
-                                    Mago esc = factory.getMagos("EscuadronM");
+                                    Raza esc = factory.getMagos("EscuadronM");
                                     esc = getJugador().getEntrenadas().get(getJugador().getEntrenadas().size() - 1);
                                     esc.modificar_posicion(op41);
                                     esc.modificar_lista(8);
@@ -946,7 +1018,7 @@ public class MenuMagos {
                             case 2:
                                 if (getJugador().getUnicoM()[0] != null) {
                                     factory = Produccion.getFactory("Magos");
-                                    Mago esc = factory.getMagos("Merlin");
+                                    Raza esc = factory.getMagos("Merlin");
                                     esc = getJugador().getUnicoM()[0];
                                     esc.modificar_lista(8);
                                     esc.modificar_posicion(op41);
@@ -968,48 +1040,72 @@ public class MenuMagos {
                     }
                     break;
                 case 5:
+                     if(getJugador().getMando().getGema()>=precio1 && getJugador().getMando().getElixir()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago oro = factory.getMagos("Generador de Oro");
+                    Raza oro = factory.getMagos("Generador de Oro");
                     getJugador().getRe1().add(oro);
-                    System.out.println("Se construyó un generador de oro");
+                    System.out.println("Se construyó un generador de oro");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     break;
                 case 6:
+                     if(getJugador().getMando().getOro()>=precio1 && getJugador().getMando().getGema()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago elixir = factory.getMagos("Generador de Elixir");
+                    Raza elixir = factory.getMagos("Generador de Elixir");
                     getJugador().getRe2().add(elixir);
                     //generador_elixir.add(elixir);
-                    System.out.println("Se construyó un generador de Elixir");
+                    System.out.println("Se construyó un generador de Elixir");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     break;
                 case 7:
+                     if(getJugador().getMando().getElixir()>=precio1 && getJugador().getMando().getOro()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago gema = factory.getMagos("Generador de Gema");
+                    Raza gema = factory.getMagos("Generador de Gema");
                     getJugador().getRe3().add(gema);
                     //generador_gema.add(gema);
-                    System.out.println("Se construyó un generador de gema");
+                    System.out.println("Se construyó un generador de gema");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     break;
                 case 8:
+                     if(getJugador().getMando().getGema()>=precio1 && getJugador().getMando().getElixir()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago entrena = factory.getMagos("Entrenador");
+                    Raza entrena = factory.getMagos("Entrenador");
                     entrena.estado();
                     getJugador().getEntrenador().add(entrena);
                     //entrenar.add(entrena);
-                    System.out.println("Se construyó una edificación para entrenar");
+                    System.out.println("Se construyó una edificación para entrenar");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     
                     break;
                 case 9:
+                     if(getJugador().getMando().getOro()>=precio1 && getJugador().getMando().getGema()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago veh1 = factory.getMagos("Alfombra");
+                    Raza veh1 = factory.getMagos("Alfombra");
                     getJugador().getVehiculo1().add(veh1);
                     //vehiculo1.add(veh1);
-                    System.out.println("Se construyó un vehiculo tipo 1");
+                    System.out.println("Se construyó un vehiculo tipo 1");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     break;
                     
                 case 10:
+                     if(getJugador().getMando().getElixir()>=precio1 && getJugador().getMando().getOro()>=precio2){
                     factory = Produccion.getFactory("Magos");
-                    Mago veh2 = factory.getMagos("Caballo");
+                    Raza veh2 = factory.getMagos("Caballo");
                     getJugador().getVehiculo2().add(veh2);
                     //vehiculo2.add(veh2);
-                    System.out.println("Se construyó un vehiculo tipo 2");
+                    System.out.println("Se construyó un vehiculo tipo 2");}
+                     else{
+                         System.out.println("No dispone de recursos suficientes");
+                     }
                     break;
                 case 11:
                     int cap1=getJugador().getMando().getCapacidad1();
@@ -1052,7 +1148,7 @@ public class MenuMagos {
                     int sup=1000;
                     boolean sta = false;
                     factory = Produccion.getFactory("Magos");
-                    Mago entrenad = factory.getMagos("Entrenador");
+                    Raza entrenad = factory.getMagos("Entrenador");
                     //sta=getJugador().getEntrenador().get(k).question();
                     System.out.println(getJugador().getEntrenador().size() > 0);
                     
@@ -1076,7 +1172,7 @@ public class MenuMagos {
                             int op = leer2.nextInt();
                             if (op == 1) {
                                 factory = Produccion.getFactory("Magos");
-                                Mago escua = factory.getMagos("EscuadronM");
+                                Raza escua = factory.getMagos("EscuadronM");
                                 escua.entrenar();
                                 getJugador().getEntrenadas().add(escua);
                                 getJugador().getEntrenador().get(sup).estado();
@@ -1084,7 +1180,7 @@ public class MenuMagos {
                             } else if (op == 2) {
                                 if (getJugador().getUnicoM()[0] == null) { 
                                     factory = Produccion.getFactory("Magos");
-                                    Mago me = factory.getMagos("Merlin");
+                                    Raza me = factory.getMagos("Merlin");
                                     getJugador().getUnicoM()[0] = me;
                                     System.out.println("Se entrenó a Merlin");
                                     getJugador().getEntrenador().get(sup).estado();
@@ -1113,6 +1209,8 @@ public class MenuMagos {
                     //cont=cont+1;
                     //System.exit(0);
                     break;
+                case 14:
+                    System.exit(0);
                 default:
                      System.out.println("");
             }
