@@ -74,8 +74,8 @@ public class WalterAyalaSWorld {
     
         int contador=1, fase=1;
         Jugador jugador2=new Jugador(2, raza1,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2,atac2,defendiendo2,unicoM2);
-        MenuMagos menu = new MenuMagos(contador, jugador1, jugador2);
-        MenuMagos menu2 = new MenuMagos(contador, jugador2, jugador1);
+        Menu menu = new Menu(contador, jugador1, jugador2);
+        Menu menu2 = new Menu(contador, jugador2, jugador1);
         String magos="magos";
         String gigantes="gigantes";
         String dragones="dragones";

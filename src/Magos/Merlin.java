@@ -11,7 +11,7 @@ package Magos;
  */
 public class Merlin implements Raza{
     public boolean estado=false;
-    public int vida=20;
+    public int vida=25;
     public int posicion=0;
     public int lista=0;
 
@@ -139,7 +139,7 @@ public class Merlin implements Raza{
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
 
 

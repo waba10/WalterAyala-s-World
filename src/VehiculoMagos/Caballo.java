@@ -13,7 +13,7 @@ import Magos.Raza;
  */
 public class Caballo implements Raza {
     public boolean estado=false;
-    public int vida=10;
+    public int vida=15;
 
     public int getVida() {
         return vida;
@@ -123,7 +123,7 @@ public class Caballo implements Raza {
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
     
 }

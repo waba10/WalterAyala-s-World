@@ -10,7 +10,7 @@ package Mandos;
  * @author HP PC
  */
 public class CentroDeMando {
-     public int vida=10;
+     public int vida=70;
      public int oro=400;
      public int elixir=300;
      public int gema=210;
@@ -102,7 +102,9 @@ public class CentroDeMando {
     public void setGema(int gema) {
         this.gema = gema;
     }
-    
+    public void duplicar_vida(){
+        setVida(getVida()*2);
+    }
     
     public void level(double ca, double ce, double ci) {
         setCapacidad1((int)ca);

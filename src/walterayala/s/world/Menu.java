@@ -14,17 +14,17 @@ import Magos.Raza;
  *
  * @author HP PC
  */
-public class MenuMagos {
+public class Menu {
     
     public int contador;
     public Jugador jugador;
     public Jugador otro;
-    public static MenuMagos menu;
+    public static Menu menu;
     
-     public MenuMagos() {
+     public Menu() {
     }
 
-    public MenuMagos(int contador, Jugador jugador, Jugador otro) {
+    public Menu(int contador, Jugador jugador, Jugador otro) {
         this.contador = contador;
         this.jugador = jugador;
         this.otro = otro;
@@ -54,13 +54,14 @@ public class MenuMagos {
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
-    public static MenuMagos getInstance(){
+    public static Menu getInstance(){
         if(menu==null){
-            menu = new MenuMagos();
+            menu = new Menu();
         }
         return menu;
     }
     public void Automatico(){
+        int ataque1=5, ataque2=10;
         AbstractFactory factory;
         factory = Produccion.getFactory("Magos");
         Raza oro1 = factory.getMagos("Generador de Oro");
@@ -110,7 +111,7 @@ public class MenuMagos {
                         es2 = getJugador().getAtacando().get(i);
                         if (es2.lista() == 1) {
                             int pos = es2.posicion();
-                            getOtro().getRe1().get(pos).modificar_vida(5);
+                            getOtro().getRe1().get(pos).modificar_vida(ataque1);
                             if (getOtro().getRe1().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el generador " + pos);
                                 getOtro().getRe1().remove(pos);
@@ -124,7 +125,7 @@ public class MenuMagos {
                         }
                         else if(es2.lista()==2){
                             int pos=es2.posicion();
-                            getOtro().getRe2().get(pos).modificar_vida(5);
+                            getOtro().getRe2().get(pos).modificar_vida(ataque1);
                             if (getOtro().getRe2().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el generador " + pos);
                                 getOtro().getRe2().remove(pos);
@@ -138,7 +139,7 @@ public class MenuMagos {
                         }
                         else if(es2.lista()==3){
                             int pos=es2.posicion();
-                            getOtro().getRe3().get(pos).modificar_vida(5);
+                            getOtro().getRe3().get(pos).modificar_vida(ataque1);
                             if (getOtro().getRe3().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el generador " + pos);
                                 getOtro().getRe3().remove(pos);
@@ -152,7 +153,7 @@ public class MenuMagos {
                         }
                         else if(es2.lista()==4){
                             int pos=es2.posicion();
-                            getOtro().getEntrenador().get(pos).modificar_vida(5);
+                            getOtro().getEntrenador().get(pos).modificar_vida(ataque1);
                             if (getOtro().getEntrenador().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el  edificio de entrenamiento " + pos);
                                 getOtro().getEntrenador().remove(pos);
@@ -166,7 +167,7 @@ public class MenuMagos {
                         }
                         else if(es2.lista()==5){
                             int pos=es2.posicion();
-                            getOtro().getVehiculo1().get(pos).modificar_vida(5);
+                            getOtro().getVehiculo1().get(pos).modificar_vida(ataque1);
                             if (getOtro().getVehiculo1().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el  edificio de vehiculos tipo 1 numero " + pos);
                                 getOtro().getVehiculo1().remove(pos);
@@ -180,7 +181,7 @@ public class MenuMagos {
                         }
                         else if(es2.lista()==6){
                             int pos=es2.posicion();
-                            getOtro().getVehiculo2().get(pos).modificar_vida(5);
+                            getOtro().getVehiculo2().get(pos).modificar_vida(ataque1);
                             if (getOtro().getVehiculo2().get(pos).vida() < 1) {
                                 System.out.println("Se destruyó el  edificio de vehiculos tipo 2 numero " + pos);
                                 getOtro().getVehiculo2().remove(pos);
@@ -193,7 +194,7 @@ public class MenuMagos {
                             }
                         }
                         else if(es2.lista()==7){
-                            
+                            //Hay que terminarlo
                         }
                     }
         
@@ -260,7 +261,7 @@ public class MenuMagos {
     }
     
     public void menuJugador(){
-        int opc=0;
+        int opc=0,ataque1=5,ataque2=10;
         do{
             if(1==(getJugador().getRaza())){
                     Menumag();
@@ -394,7 +395,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getRe1().get(pos).modificar_vida(5);
+                                                getOtro().getRe1().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getRe1().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -428,7 +429,7 @@ public class MenuMagos {
                                                 esa.modificar_lista(1);
                                                 esa.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(esa);
-                                                getOtro().getRe1().get(pos).modificar_vida(20);
+                                                getOtro().getRe1().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getRe1().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -486,7 +487,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getRe2().get(pos).modificar_vida(5);
+                                                getOtro().getRe2().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getRe2().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -515,7 +516,7 @@ public class MenuMagos {
                                                     }
                                                 }
 
-                                                getOtro().getRe2().get(pos).modificar_vida(20);
+                                                getOtro().getRe2().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getRe2().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -572,7 +573,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getRe3().get(pos).modificar_vida(5);
+                                                getOtro().getRe3().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getRe3().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -601,7 +602,7 @@ public class MenuMagos {
                                                     }
                                                 }
 
-                                                getOtro().getRe3().get(pos).modificar_vida(20);
+                                                getOtro().getRe3().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getRe3().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -659,7 +660,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getEntrenador().get(pos).modificar_vida(5);
+                                                getOtro().getEntrenador().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getEntrenador().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -688,7 +689,7 @@ public class MenuMagos {
                                                     }
                                                 }
 
-                                                getOtro().getEntrenador().get(pos).modificar_vida(20);
+                                                getOtro().getEntrenador().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getEntrenador().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -745,7 +746,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getVehiculo1().get(pos).modificar_vida(5);
+                                                getOtro().getVehiculo1().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getVehiculo1().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -774,7 +775,7 @@ public class MenuMagos {
                                                     }
                                                 }
 
-                                                getOtro().getVehiculo1().get(pos).modificar_vida(20);
+                                                getOtro().getVehiculo1().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getVehiculo1().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -831,7 +832,7 @@ public class MenuMagos {
                                                 es.modificar_posicion(pos);
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getVehiculo2().get(pos).modificar_vida(5);
+                                                getOtro().getVehiculo2().get(pos).modificar_vida(ataque1);
                                                 if (getOtro().getVehiculo2().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -865,7 +866,7 @@ public class MenuMagos {
                                                 esa.modificar_lista(6);
                                                 getJugador().getAtacando().add(esa);
                                                 //getJugador().getEntrenadas().remove(tam);
-                                                getOtro().getVehiculo2().get(pos).modificar_vida(20);
+                                                getOtro().getVehiculo2().get(pos).modificar_vida(ataque2);
                                                 if (getOtro().getVehiculo2().get(pos).vida() < 1) {
                                                     System.out.println("Se destruyó");
                                                 } else {
@@ -920,7 +921,7 @@ public class MenuMagos {
                                                 getJugador().getAtacando().add(es);
                                                 getJugador().getEntrenadas().remove(tam);
                                                 int vida = getOtro().getMando().getVida();
-                                                vida = vida - 5;
+                                                vida = vida - ataque1;
                                                 getOtro().getMando().setVida(vida);
                                                 //getOtro().getMando().getVida().modificar_vida(5);
                                                 if (getOtro().getMando().getVida() < 1) {
@@ -952,7 +953,7 @@ public class MenuMagos {
                                                 }
 
                                                 int vida = getOtro().getMando().getVida();
-                                                vida = vida - 20;
+                                                vida = vida - ataque2;
                                                 getOtro().getMando().setVida(vida);
                                                 if (getOtro().getMando().getVida() < 1) {
                                                     System.out.println("Se destruyó");
@@ -1003,7 +1004,7 @@ public class MenuMagos {
                                     esc = getJugador().getEntrenadas().get(getJugador().getEntrenadas().size() - 1);
                                     esc.modificar_posicion(op41);
                                     esc.modificar_lista(8);
-                                    getOtro().getAtacando().get(op41).modificar_vida(5);
+                                    getOtro().getAtacando().get(op41).modificar_vida(ataque1);
                                     if (getOtro().getAtacando().get(op41).vida() < 1) {
                                         System.out.println("Se destruyó la tropa enemiga");
                                         getOtro().getAtacando().remove(op41);
@@ -1022,7 +1023,7 @@ public class MenuMagos {
                                     esc = getJugador().getUnicoM()[0];
                                     esc.modificar_lista(8);
                                     esc.modificar_posicion(op41);
-                                    getOtro().getAtacando().get(op41).modificar_vida(20);
+                                    getOtro().getAtacando().get(op41).modificar_vida(ataque2);
                                     if (getOtro().getAtacando().get(op41).vida() < 1) {
                                         System.out.println("Se destruyó la tropa enemiga");
                                         getOtro().getAtacando().remove(op41);
@@ -1043,8 +1044,16 @@ public class MenuMagos {
                      if(getJugador().getMando().getGema()>=precio1 && getJugador().getMando().getElixir()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza oro = factory.getMagos("Generador de Oro");
+                    if(getJugador().getRaza()==2){
+                        oro.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     getJugador().getRe1().add(oro);
-                    System.out.println("Se construyó un generador de oro");}
+                    System.out.println("Se construyó un generador de oro");
+                     getJugador().getMando().setGema(getJugador().getMando().getGema()-precio1);
+                     getJugador().getMando().setElixir(getJugador().getMando().getElixir()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }
@@ -1053,9 +1062,17 @@ public class MenuMagos {
                      if(getJugador().getMando().getOro()>=precio1 && getJugador().getMando().getGema()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza elixir = factory.getMagos("Generador de Elixir");
+                    if(getJugador().getRaza()==2){
+                        elixir.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     getJugador().getRe2().add(elixir);
                     //generador_elixir.add(elixir);
-                    System.out.println("Se construyó un generador de Elixir");}
+                    System.out.println("Se construyó un generador de Elixir");
+                      getJugador().getMando().setOro(getJugador().getMando().getOro()-precio1);
+                     getJugador().getMando().setGema(getJugador().getMando().getGema()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }
@@ -1064,9 +1081,17 @@ public class MenuMagos {
                      if(getJugador().getMando().getElixir()>=precio1 && getJugador().getMando().getOro()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza gema = factory.getMagos("Generador de Gema");
+                    if(getJugador().getRaza()==2){
+                        gema.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     getJugador().getRe3().add(gema);
                     //generador_gema.add(gema);
-                    System.out.println("Se construyó un generador de gema");}
+                    System.out.println("Se construyó un generador de gema");
+                      getJugador().getMando().setElixir(getJugador().getMando().getElixir()-precio1);
+                     getJugador().getMando().setOro(getJugador().getMando().getOro()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }
@@ -1075,10 +1100,18 @@ public class MenuMagos {
                      if(getJugador().getMando().getGema()>=precio1 && getJugador().getMando().getElixir()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza entrena = factory.getMagos("Entrenador");
+                    if(getJugador().getRaza()==2){
+                        entrena.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     entrena.estado();
                     getJugador().getEntrenador().add(entrena);
                     //entrenar.add(entrena);
-                    System.out.println("Se construyó una edificación para entrenar");}
+                    System.out.println("Se construyó una edificación para entrenar");
+                      getJugador().getMando().setGema(getJugador().getMando().getGema()-precio1);
+                     getJugador().getMando().setElixir(getJugador().getMando().getElixir()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }
@@ -1088,9 +1121,17 @@ public class MenuMagos {
                      if(getJugador().getMando().getOro()>=precio1 && getJugador().getMando().getGema()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza veh1 = factory.getMagos("Alfombra");
+                    if(getJugador().getRaza()==2){
+                        veh1.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     getJugador().getVehiculo1().add(veh1);
                     //vehiculo1.add(veh1);
-                    System.out.println("Se construyó un vehiculo tipo 1");}
+                    System.out.println("Se construyó un vehiculo tipo 1");
+                     getJugador().getMando().setOro(getJugador().getMando().getOro()-precio1);
+                     getJugador().getMando().setGema(getJugador().getMando().getGema()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }
@@ -1100,9 +1141,17 @@ public class MenuMagos {
                      if(getJugador().getMando().getElixir()>=precio1 && getJugador().getMando().getOro()>=precio2){
                     factory = Produccion.getFactory("Magos");
                     Raza veh2 = factory.getMagos("Caballo");
+                    if(getJugador().getRaza()==2){
+                        veh2.vida_inicial();
+                    }
+                    else{
+                        System.out.println("");
+                    }
                     getJugador().getVehiculo2().add(veh2);
                     //vehiculo2.add(veh2);
-                    System.out.println("Se construyó un vehiculo tipo 2");}
+                    System.out.println("Se construyó un vehiculo tipo 2");
+                     getJugador().getMando().setElixir(getJugador().getMando().getElixir()-precio1);
+                     getJugador().getMando().setOro(getJugador().getMando().getOro()-precio2);}
                      else{
                          System.out.println("No dispone de recursos suficientes");
                      }

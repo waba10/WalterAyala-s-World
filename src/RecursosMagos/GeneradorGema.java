@@ -12,7 +12,7 @@ import Magos.Raza;
  * @author HP PC
  */
 public class GeneradorGema implements Raza {
-    public int vida=15;
+    public int vida=20;
     public int Gema;
     public boolean estado=false;
 
@@ -136,7 +136,7 @@ public class GeneradorGema implements Raza {
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
     
 }

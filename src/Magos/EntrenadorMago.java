@@ -11,7 +11,7 @@ package Magos;
  */
 public class EntrenadorMago implements Raza {
     public boolean estado=false;
-    public int vida=15;
+    public int vida=25;
     public int lista=0;
     public int posicion=0;
 
@@ -147,8 +147,7 @@ public class EntrenadorMago implements Raza {
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida() * 2);
     }
 
-    
 }

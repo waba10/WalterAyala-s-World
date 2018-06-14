@@ -13,7 +13,7 @@ import Magos.Raza;
  */
 public class GeneradorElixir implements Raza {
     public int Elixir;
-    public int vida=15;
+    public int vida=20;
     public boolean estado=false;       
 
     public boolean isEstado() {
@@ -136,7 +136,7 @@ public class GeneradorElixir implements Raza {
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
     
 }
