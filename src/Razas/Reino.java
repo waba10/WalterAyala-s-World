@@ -3,31 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Magos;
+package Razas;
 
 
 import walterayala.s.world.AbstractFactory;
-import Dragones.DragonInfernal;
-import Dragones.EntrenadorDragon;
-import Dragones.EscuadronD;
-import Gigantes.Ciclope;
-import Gigantes.EntrenadorGigante;
-import Gigantes.EscuadronG;
-import RecursosDragones.GeneradorBronce;
-import RecursosDragones.GeneradorDiamante;
-import RecursosDragones.GeneradorLava;
-import RecursosGigantes.GeneradorPlata;
-import RecursosGigantes.GeneradorPosion;
-import RecursosGigantes.GeneradorRubi;
-import RecursosMagos.GeneradorElixir;
-import RecursosMagos.GeneradorGema;
-import RecursosMagos.GeneradorOro;
-import VehiculoDragones.Avion;
-import VehiculoDragones.Nave;
-import VehiculoGigantes.Bote;
-import VehiculoGigantes.Camion;
-import VehiculoMagos.Alfombra;
-import VehiculoMagos.Caballo;
+
+import Recursos.GeneradorElixir;
+import Recursos.GeneradorGema;
+import Recursos.GeneradorOro;
+
+import Vehiculo.Alfombra;
+import Vehiculo.Caballo;
 
 /**
  *

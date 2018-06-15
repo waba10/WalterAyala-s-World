@@ -3,34 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Magos;
+package Recursos;
+
+import walterayala.s.world.AbstractFactory;
+import walterayala.s.world.Produccion;
+import Razas.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class EntrenadorMago implements Raza {
+public class GeneradorOro implements Raza {
+    public int vida=20;
+    public int Oro;
     public boolean estado=false;
-    public int vida=25;
-    public int lista=0;
-    public int posicion=0;
 
-    public int getLista() {
-        return lista;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setLista(int lista) {
-        this.lista = lista;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
-
-    public int getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(int posicion) {
-        this.posicion = posicion;
-    }
-    
 
     public int getVida() {
         return vida;
@@ -41,14 +35,13 @@ public class EntrenadorMago implements Raza {
     }
     
 
-    public boolean isEstado() {
-        return estado;
+    public int getOro() {
+        return Oro;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setOro(int Oro) {
+        this.Oro = Oro;
     }
-
     
     @Override
     public void atacar() {
@@ -60,43 +53,48 @@ public class EntrenadorMago implements Raza {
 
     @Override
     public void construir() {
-        System.out.println("Se ha construido una edificacion de Entrenamiento de Magos");}
+    }
 
     @Override
     public int recolectar() {
-        return 0;
+        int num;
+        num=getOro();
+        setOro(0);
+        return num;
+        
     }
 
     @Override
     public void generar() {
-    }
-
-
-    @Override
-    public int vida() {
-        return vida;
+           //setOro(Oro+200);
+           if(getOro()<4000){
+               setOro(Oro+400);
+           }
+           else{
+               System.out.println("Llegaste al limite, si quieres seguir generando de este recurso, recolectalo");
+           }
+           
     }
 
     @Override
     public boolean entrenar() {
-    if(estado==false){
-            setEstado(true);
-        }
-        else{
-            setEstado(false);
-        }
-    return estado;
+        return estado;
     }
 
     @Override
     public boolean estado() {
-    if(estado==false){
+        if(estado==false){
             setEstado(true);
         }
         else{
             setEstado(false);
         }
-    return estado;
+        return estado;
+    }
+
+    @Override
+    public int vida() {
+        return vida;
     }
 
     @Override
@@ -142,12 +140,12 @@ public class EntrenadorMago implements Raza {
 
     @Override
     public void generar_doble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        setOro(Oro+800);
+           }
 
     @Override
     public void vida_inicial() {
-        setVida(getVida() * 2);
+        setVida(getVida()*2);
     }
-
+    
 }

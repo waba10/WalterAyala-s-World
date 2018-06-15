@@ -1,29 +1,19 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RecursosMagos;
+package Vehiculo;
 
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class GeneradorGema implements Raza {
-    public int vida=20;
-    public int Gema;
+public class Caballo implements Raza {
     public boolean estado=false;
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-    
+    public int vida=15;
 
     public int getVida() {
         return vida;
@@ -33,15 +23,15 @@ public class GeneradorGema implements Raza {
         this.vida = vida;
     }
     
-
-    public int getGema() {
-        return Gema;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setGema(int Gema) {
-        this.Gema = Gema;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
+
     @Override
     public void atacar() {
     }
@@ -52,19 +42,16 @@ public class GeneradorGema implements Raza {
 
     @Override
     public void construir() {
+        System.out.println("Se construtó una edificación para Caballos");
     }
 
     @Override
-    public int recolectar() {
-        int num;
-        num=getGema();
-        setGema(0);
-        return num;
+    public int  recolectar() {
+        return 0;
     }
 
     @Override
     public void generar() {
-        setGema(Gema+210);
     }
 
     @Override
@@ -131,8 +118,8 @@ public class GeneradorGema implements Raza {
 
     @Override
     public void generar_doble() {
-        setGema(Gema+420);
-           }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void vida_inicial() {

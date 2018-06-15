@@ -3,17 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VehiculoDragones;
-
-import Magos.Raza;
+package Razas;
 
 /**
  *
  * @author HP PC
  */
-public class Nave implements Raza{
+public class EscuadronM implements Raza{
     public boolean estado=false;
-    public int vida=10;
+    public int vida=15;
+    public int posicion=0;
+    public int lista=0;
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public int getLista() {
+        return lista;
+    }
+
+    public void setLista(int lista) {
+        this.lista = lista;
+    }
+    
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public int getVida() {
         return vida;
@@ -22,27 +47,19 @@ public class Nave implements Raza{
     public void setVida(int vida) {
         this.vida = vida;
     }
-      
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-    
 
     @Override
     public void atacar() {
+        System.out.println("30% de daño");
     }
-
+    
     @Override
     public void defender() {
+        System.out.println("20% de daño");
     }
 
     @Override
     public void construir() {
-        System.out.println("Se contruyó una edificación para alfombras");
     }
 
     @Override
@@ -56,6 +73,12 @@ public class Nave implements Raza{
 
     @Override
     public boolean entrenar() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
         return estado;
     }
 
@@ -98,22 +121,22 @@ public class Nave implements Raza{
 
     @Override
     public int lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return lista;
     }
 
     @Override
     public int posicion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return posicion;
     }
 
     @Override
     public void modificar_lista(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setLista(num);
     }
 
     @Override
     public void modificar_posicion(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setPosicion(num);
     }
 
     @Override
@@ -123,7 +146,6 @@ public class Nave implements Raza{
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
-    
 }

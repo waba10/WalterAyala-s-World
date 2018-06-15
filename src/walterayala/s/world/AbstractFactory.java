@@ -7,7 +7,7 @@ package walterayala.s.world;
 
 
 
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *

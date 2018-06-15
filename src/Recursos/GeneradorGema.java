@@ -1,36 +1,27 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dragones;
+package Recursos;
 
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class EntrenadorDragon implements Raza {
+public class GeneradorGema implements Raza {
+    public int vida=20;
+    public int Gema;
     public boolean estado=false;
-    public int vida=15;
-    public int lista=0;
-    public int posicion=0;
 
-    public int getLista() {
-        return lista;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setLista(int lista) {
-        this.lista = lista;
-    }
-
-    public int getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(int posicion) {
-        this.posicion = posicion;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
 
@@ -43,14 +34,13 @@ public class EntrenadorDragon implements Raza {
     }
     
 
-    public boolean isEstado() {
-        return estado;
+    public int getGema() {
+        return Gema;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setGema(int Gema) {
+        this.Gema = Gema;
     }
-
     
     @Override
     public void atacar() {
@@ -62,43 +52,46 @@ public class EntrenadorDragon implements Raza {
 
     @Override
     public void construir() {
-        System.out.println("Se ha construido una edificacion de Entrenamiento de Magos");}
+    }
 
     @Override
     public int recolectar() {
-        return 0;
+        int num;
+        num=getGema();
+        setGema(0);
+        return num;
     }
 
     @Override
     public void generar() {
-    }
-
-
-    @Override
-    public int vida() {
-        return vida;
+        if(getGema()<2100){
+               setGema(Gema+210);
+           }
+           else{
+               System.out.println("Llegaste al limite, si quieres seguir generando de este recurso, recolectalo");
+           }
+       
     }
 
     @Override
     public boolean entrenar() {
-    if(estado==false){
-            setEstado(true);
-        }
-        else{
-            setEstado(false);
-        }
-    return estado;
+        return estado;
     }
 
     @Override
     public boolean estado() {
-    if(estado==false){
+        if(estado==false){
             setEstado(true);
         }
         else{
             setEstado(false);
         }
-    return estado;
+        return estado;
+    }
+
+    @Override
+    public int vida() {
+        return vida;
     }
 
     @Override
@@ -144,12 +137,12 @@ public class EntrenadorDragon implements Raza {
 
     @Override
     public void generar_doble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        setGema(Gema+420);
+           }
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
-
+    
 }

@@ -3,21 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RecursosMagos;
-
-import walterayala.s.world.AbstractFactory;
-import walterayala.s.world.Produccion;
-import Magos.Raza;
+package Razas;
 
 /**
  *
  * @author HP PC
  */
-public class GeneradorOro implements Raza {
-    public int vida=20;
-    public int Oro;
+public class Merlin implements Raza{
     public boolean estado=false;
+    public int vida=25;
+    public int posicion=0;
+    public int lista=0;
 
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public void setLista(int lista) {
+        this.lista = lista;
+    }
+
+    
     public boolean isEstado() {
         return estado;
     }
@@ -26,6 +32,7 @@ public class GeneradorOro implements Raza {
         this.estado = estado;
     }
 
+    
     public int getVida() {
         return vida;
     }
@@ -34,21 +41,15 @@ public class GeneradorOro implements Raza {
         this.vida = vida;
     }
     
-
-    public int getOro() {
-        return Oro;
-    }
-
-    public void setOro(int Oro) {
-        this.Oro = Oro;
-    }
     
     @Override
     public void atacar() {
+        System.out.println("30% de daño");
     }
-
+    
     @Override
     public void defender() {
+        System.out.println("20% de daño");
     }
 
     @Override
@@ -57,23 +58,21 @@ public class GeneradorOro implements Raza {
 
     @Override
     public int recolectar() {
-        int num;
-        num=getOro();
-        setOro(0);
-        return num;
-        
+        return 0;
     }
 
     @Override
     public void generar() {
-           //setOro(Oro+200);
-           
-           setOro(Oro+400);
-           
     }
 
     @Override
     public boolean entrenar() {
+        if(estado==false){
+            setEstado(true);
+        }
+        else{
+            setEstado(false);
+        }
         return estado;
     }
 
@@ -116,32 +115,34 @@ public class GeneradorOro implements Raza {
 
     @Override
     public int lista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return lista;
     }
 
     @Override
     public int posicion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return posicion;
     }
 
     @Override
     public void modificar_lista(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setLista(num);
     }
 
     @Override
     public void modificar_posicion(int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        setPosicion(num);}
 
     @Override
     public void generar_doble() {
-        setOro(Oro+800);
-           }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     @Override
     public void vida_inicial() {
         setVida(getVida()*2);
     }
+
+
+    
     
 }

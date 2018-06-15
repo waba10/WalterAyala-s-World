@@ -107,8 +107,14 @@ public class CentroDeMando {
     }
     
     public void level(double ca, double ce, double ci) {
-        setCapacidad1((int)ca);
-        setCapacidad2((int)ce);
-        setCapacidad3((int)ci);
+        if(ca<capacidad111+1 && ce<capacidad222+1 && ci<capacidad333+1){
+            setCapacidad1((int)ca);
+            setCapacidad2((int)ce);
+            setCapacidad3((int)ci);
+        }
+        else{
+            System.out.println("Ya no se puede seguir mejorando el centro de mando");
+        }
+        
     }
 }

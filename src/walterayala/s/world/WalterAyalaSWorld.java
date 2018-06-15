@@ -7,10 +7,10 @@ package walterayala.s.world;
 
 
 import Mandos.CentroDeMando;
-import RecursosMagos.GeneradorOro;
+import Recursos.GeneradorOro;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *
@@ -35,7 +35,7 @@ public class WalterAyalaSWorld {
         ArrayList<Raza> atac=new ArrayList<Raza>();
         ArrayList<Raza> entrenadas=new ArrayList<Raza>();
         ArrayList<Raza> defendiendo=new ArrayList<Raza>();
-        Raza[] unicoM=new Raza[1];
+        ArrayList<Raza> unicoM=new ArrayList<Raza>();
         ArrayList<Raza> genoro2=new ArrayList<Raza>();
         ArrayList<Raza> genel2=new ArrayList<Raza>();
         ArrayList<Raza> gengem2=new ArrayList<Raza>();
@@ -45,10 +45,11 @@ public class WalterAyalaSWorld {
         ArrayList<Raza> atac2=new ArrayList<Raza>();
         ArrayList<Raza> entrenadas2=new ArrayList<Raza>();
         ArrayList<Raza> defendiendo2=new ArrayList<Raza>();
-        Raza[] unicoM2=new Raza[1];
+        ArrayList<Raza> unicoM2=new ArrayList<Raza>();
         Scanner leer = new Scanner(System.in);
-        int raza;
-        int raza1;
+        Scanner leer2 = new Scanner(System.in);
+        int raza=0;
+        int raza1=0;
         System.out.println("-------Bienvenido a WalterAyala's World-------");
         System.out.println("A continuación le diremos la fortaleza de cada raza");
         System.out.println("La raza de Magos posee la característica de generar más recursos por turno");
@@ -56,41 +57,67 @@ public class WalterAyalaSWorld {
         System.out.println("La raza de Dragones posee la característica de que el ataque de sus tropas es el doble");
         System.out.println("Ingrese que raza eligirá: ");
         System.out.println("1.Magos     2.Gigantes     3.Dragones");
+        try {
+            System.out.println("\nDigite una opcion: ");
+            raza = leer.nextInt();
+        } catch (Exception e) {
+            System.err.println("\nNo ingresó un numero\n");
+        }
         
-        raza=leer.nextInt();
+       
         
         while(raza!=1 && raza!=2 && raza!=3) {
-            System.out.println("Por favor ingrese una raza valida para el jugador 1");
-            raza=leer.nextInt();
+            
+             try {
+                                System.out.println("\nDigite una opcion: ");
+                                 raza=leer.nextInt();
+                            } catch (Exception e) {
+                                System.err.println("\nNo ingresó un numero\n");
+                                raza=1;
+                            }
+            
         }
         Jugador jugador1=new Jugador( 1 , raza, mando1,genoro,genel,gengem,entre,ve1,ve2,entrenadas,atac,defendiendo,unicoM);
         System.out.println("Ingrese que raza eligirá entre: ");
-        System.out.println("Magos     Gigantes     Dragones");
-        raza1=leer.nextInt();
+        System.out.println("1.Magos     2.Gigantes     3.Dragones");
+         try {
+                                System.out.println("\nDigite una opcion: ");
+                                 raza1=leer2.nextInt();
+                            } catch (Exception e) {
+                                System.err.println("\nNo ingresó un numero\n");
+                            }
+        
          while(raza!=1 && raza!=2 && raza!=3) {
-            System.out.println("Por favor ingrese una raza valida para el jugador 2");
-            raza1=leer.nextInt();
+            
+             try {
+                                System.out.println("\nDigite una opcion: ");
+                                 raza1=leer2.nextInt();
+                            } catch (Exception e) {
+                                System.err.println("\nNo ingresó un numero\n");
+                                raza=1;
+                            }
+            
         }
     
         int contador=1, fase=1;
         Jugador jugador2=new Jugador(2, raza1,mando2,genoro2,genel2,gengem2,entre2,ve12,ve22, entrenadas2,atac2,defendiendo2,unicoM2);
         Menu menu = new Menu(contador, jugador1, jugador2);
         Menu menu2 = new Menu(contador, jugador2, jugador1);
-        String magos="magos";
-        String gigantes="gigantes";
-        String dragones="dragones";
-        System.out.println("La raza del jugador "+ jugador1.getNum()+ " es "+ jugador1.getRaza());
-        System.out.println("La raza del jugador "+ jugador2.getNum()+ " es "+ jugador2.getRaza());
+      
         while(cont!=-1){
-            if(cont%2==0){  
-              
+            if(cont%2==0){ 
+                menu.defensores();
+                menu.fase_generadores();
+                menu.soldado();
                 menu.Automatico();
                 
                 menu.menuJugador();
                 cont=jugador1.fase(cont);
             }
             else{ 
-               
+                menu2.defensores();
+                menu2.fase_generadores();
+                menu2.soldado();
                 menu2.Automatico();
                 
                 menu2.menuJugador();

@@ -3,27 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package RecursosGigantes;
+package Vehiculo;
 
-import Magos.Raza;
-
+import Razas.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class GeneradorPlata implements Raza {
-    public int vida=15;
-    public int Oro;
+public class Alfombra implements Raza {
     public boolean estado=false;
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
+    public int vida=15;
 
     public int getVida() {
         return vida;
@@ -32,16 +22,16 @@ public class GeneradorPlata implements Raza {
     public void setVida(int vida) {
         this.vida = vida;
     }
-    
-
-    public int getOro() {
-        return Oro;
+      
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setOro(int Oro) {
-        this.Oro = Oro;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
+
     @Override
     public void atacar() {
     }
@@ -52,23 +42,16 @@ public class GeneradorPlata implements Raza {
 
     @Override
     public void construir() {
+        System.out.println("Se contruyó una edificación para alfombras");
     }
 
     @Override
     public int recolectar() {
-        int num;
-        num=getOro();
-        setOro(0);
-        return num;
-        
+        return 0;
     }
 
     @Override
     public void generar() {
-           //setOro(Oro+200);
-           
-           setOro(Oro+100);
-           
     }
 
     @Override
@@ -140,8 +123,7 @@ public class GeneradorPlata implements Raza {
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
-    
     
 }

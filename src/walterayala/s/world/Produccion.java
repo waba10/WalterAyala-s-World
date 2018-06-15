@@ -5,7 +5,7 @@
  */
 package walterayala.s.world;
 
-import Magos.Reino;
+import Razas.Reino;
 
 /**
  *

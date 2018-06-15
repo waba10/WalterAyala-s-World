@@ -7,9 +7,9 @@ package walterayala.s.world;
 
 
 import Mandos.CentroDeMando;
-import RecursosMagos.GeneradorOro;
+import Recursos.GeneradorOro;
 import java.util.ArrayList;
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *
@@ -35,12 +35,12 @@ public class Jugador {
     public  ArrayList<Raza> entrenadas;
     public  ArrayList<Raza> atacando;
     public  ArrayList<Raza> defendiendo;
-    public Raza[] unicoM;
+    public ArrayList<Raza> unicoM;
  
     public Jugador(){
     }
 
-    public Jugador(int num, int raza, CentroDeMando mando, ArrayList<Raza> re1, ArrayList<Raza> re2, ArrayList<Raza> re3, ArrayList<Raza> entrenador, ArrayList<Raza> vehiculo1, ArrayList<Raza> vehiculo2, ArrayList<Raza> entrenadas, ArrayList<Raza> atacando, ArrayList<Raza> defendiendo, Raza[] unicoM) {
+    public Jugador(int num, int raza, CentroDeMando mando, ArrayList<Raza> re1, ArrayList<Raza> re2, ArrayList<Raza> re3, ArrayList<Raza> entrenador, ArrayList<Raza> vehiculo1, ArrayList<Raza> vehiculo2, ArrayList<Raza> entrenadas, ArrayList<Raza> atacando, ArrayList<Raza> defendiendo, ArrayList<Raza> unicoM) {
         this.num = num;
         this.raza = raza;
         this.mando = mando;
@@ -64,18 +64,14 @@ public class Jugador {
         this.raza = raza;
     }
 
-   
-
-
-    public Raza[] getUnicoM() {
+    public ArrayList<Raza> getUnicoM() {
         return unicoM;
     }
 
-    public void setUnicoM(Raza[] unicoM) {
+    public void setUnicoM(ArrayList<Raza> unicoM) {
         this.unicoM = unicoM;
     }
 
-    
 
     public ArrayList<Raza> getDefendiendo() {
         return defendiendo;

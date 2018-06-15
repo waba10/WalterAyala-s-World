@@ -3,37 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Gigantes;
+package Recursos;
 
-import Magos.Raza;
+import Razas.Raza;
 
 /**
  *
  * @author HP PC
  */
-public class EntrenadorGigante implements Raza {
-    public boolean estado=false;
-    public int vida=15;
-    public int lista=0;
-    public int posicion=0;
+public class GeneradorElixir implements Raza {
+    public int Elixir;
+    public int vida=20;
+    public boolean estado=false;       
 
-    public int getLista() {
-        return lista;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setLista(int lista) {
-        this.lista = lista;
-    }
-
-    public int getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(int posicion) {
-        this.posicion = posicion;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
-
     public int getVida() {
         return vida;
     }
@@ -43,15 +33,15 @@ public class EntrenadorGigante implements Raza {
     }
     
 
-    public boolean isEstado() {
-        return estado;
+    public int getElixir() {
+        return Elixir;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setElixir(int Elixir) {
+        this.Elixir = Elixir;
     }
-
     
+
     @Override
     public void atacar() {
     }
@@ -62,43 +52,41 @@ public class EntrenadorGigante implements Raza {
 
     @Override
     public void construir() {
-        System.out.println("Se ha construido una edificacion de Entrenamiento de Magos");}
+    }
 
     @Override
     public int recolectar() {
-        return 0;
+        int num;
+        num=getElixir();
+        setElixir(0);
+        return num;
     }
 
     @Override
     public void generar() {
-    }
-
-
-    @Override
-    public int vida() {
-        return vida;
+        setElixir(Elixir+300);
+        
     }
 
     @Override
     public boolean entrenar() {
-    if(estado==false){
-            setEstado(true);
-        }
-        else{
-            setEstado(false);
-        }
-    return estado;
+        return estado;
     }
 
     @Override
     public boolean estado() {
-    if(estado==false){
+        if(estado==false){
             setEstado(true);
         }
         else{
             setEstado(false);
         }
-    return estado;
+        return estado;
+    }
+
+    @Override
+    public int vida() {
+        return vida;
     }
 
     @Override
@@ -144,15 +132,11 @@ public class EntrenadorGigante implements Raza {
 
     @Override
     public void generar_doble() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         setElixir(Elixir+600);}
 
     @Override
     public void vida_inicial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        setVida(getVida()*2);
     }
-
     
-
-
 }
