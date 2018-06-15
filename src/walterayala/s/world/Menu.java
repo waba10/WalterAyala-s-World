@@ -454,17 +454,16 @@ public class Menu {
                 case 7:
                     int vida;
                     vida = getOtro().getMando().getVida();
-                    
+                    if (getJugador().getRaza() == 3) {
+                        getOtro().getMando().setVida(vida - (ataque2 * 2));
+                    } else {
+                        getOtro().getMando().setVida(vida - ataque2);
+                    }
                     if (getOtro().getMando().getVida() < 1) {
                         System.out.println("Se destruyó el  Centro de Mando del rival");
                         System.exit(0);
 
                     } else {
-                        if (getJugador().getRaza() == 3) {
-                        getOtro().getMando().setVida(vida - (ataque2 * 2));
-                    } else {
-                        getOtro().getMando().setVida(vida - ataque2);
-                    }
                         System.out.println("Sigue con vida el Centro de Mando");
                     }
                     break;
